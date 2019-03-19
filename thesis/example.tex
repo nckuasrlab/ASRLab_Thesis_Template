@@ -56,10 +56,10 @@
 \begin{minipage}[c][5cm][t]{\textwidth}
   \begin{center}
     \makebox[\textwidth][c]{\parbox{\paperwidth}
-    {\center \Large 國立成功大學碩博士畢業論文\\LaTex模板}}
+    {\center \Large 普悠瑪：基於Linux即時作業系統\\實驗平台之小型自動駕駛車}}
     \vspace{0.5cm}\\
     \makebox[\textwidth][c]{\parbox{\paperwidth}
-    {\center \Large National Cheng Kung University (NCKU)\\Thesis/Dissertation Template in LaTex}}
+    {\center \Large Puyuma: Linux-based RTOS experimental platform\\for constructing self-driving miniature vehicles}}
   \end{center}
 \end{minipage}
 
@@ -71,56 +71,39 @@
       % -------------Student-------------
       \hspace{2.0em}
       \makebox[4.0em][r]{\Large 學生：}
-      \makebox[6.0em][l]{\Large 你的名字}
+      \makebox[6.0em][l]{\Large 王紹華}
       \makebox[8.0em][c]{}
       \makebox[4.0em][r]{\Large Student：}
-      \makebox[8.0em][l]{\Large Your Name}
+      \makebox[8.0em][l]{\Large Shao-Hua Wang}
       \vspace{0.5cm}\\
       % -------------Advisor-------------
       \hspace{2.0em}
       \makebox[4.0em][r]{\Large 指導老師：}
-      \makebox[6.0em][l]{\Large A博士}
+      \makebox[6.0em][l]{\Large 涂嘉恒教授}
       \makebox[8.0em][c]{}
       \makebox[4.0em][r]{\Large Advisor：}
-      \makebox[8.0em][l]{\Large Dr. A}
+      \makebox[8.0em][l]{\Large Prof. ChiaHeng Tu}
       \vspace{0.1cm}\\
       % -------------Co-Advisor-1-------------
       \hspace{2.0em}
       \makebox[4.0em][r]{\Large 共同指導：}
-      \makebox[6.0em][l]{\Large B博士}
+      \makebox[6.0em][l]{\Large 黃敬群教授}
       \makebox[8.0em][c]{}
       \makebox[4.0em][r]{\Large Co-Advisor：}
-      \makebox[8.0em][l]{\Large Dr. B}
+      \makebox[8.0em][l]{\Large Prof. Ching-Chun Huang}
       \vspace{0.1cm}\\
-      % -------------Co-Advisor-2-------------
-      \hspace{1.7em}
-      \makebox[4.0em][r]{}
-      \makebox[6.0em][l]{\Large C博士}
-      \makebox[8.0em][c]{}
-      \makebox[4.0em][r]{}
-      \makebox[8.0em][l]{\Large Dr. C}
-      \\
     }
   \end{center}
 \end{minipage}
 
 \vspace{0.5cm}
 
-\makebox[8cm][s]{\Large 中華民國105年12月}
+\makebox[8cm][s]{\Large 中華民國108年3月}
 
 \end{center}
 \restoregeometry
 \clearpage
 \setstretch{1.2}
-
-% ------------------------------------------------
-%  學位考試論文證明書 Defense Certificate (初稿不需要)
-% ------------------------------------------------
-\newpage
-\phantomsection
-\thispagestyle{empty}
-\includepdf[pages=-]{context/oral/oral_example.pdf}
-\clearpage
 
 % ------------------------------------------------
 %                  摘要 Abstract
@@ -137,11 +120,13 @@
 \chapter*{摘要}
 \pagestyle{plain}
 
-除了外籍生, 本地生和僑生都是要編寫中文和英文摘要. 論文以中文撰寫須以英文補寫 800 至 1200 字數的英文延伸摘要 (Extended Abstract), 如需要的話請修改`./context/abstract/extended.tex'.
+\begin{spacing}{2.0}
 
-外籍生則可免填中文摘要, 而在上傳時網頁資訊需填上`NONE'.
+本論文建構了一個低成本高效能的自動駕駛雛型，此雛型具備電腦視覺架構，控制系統和車輛間通訊系統，從自動汽車軟體的規範開始，在不同的抽象層上執行，直到完整實現最終目標。透過在即時運行的平台上同時整合 ROS, OpenCV, Linux 及 閉合迴路控制系統來促使軟體運行。本論文以低於 100 美元的預算下，並搭配開源軟體技術，在短時間建構了自動駕駛雛型，使後續開發人員能夠以此雛型進行有效地探索和評估。在對應的效能加速下，本論文展示了該自動駕駛雛型降低了開發時間及成本，並能使後續驗證工作更加完善。
 
-\par{\noindent \bf 關鍵字:}{關鍵字1, 關鍵字2, 關鍵字3, 關鍵字4}
+\end{spacing}
+
+\par{\noindent \bf 關鍵字:}{即時作業系統, 自動駕駛, 機器人作業系統}
 \clearpage
 \setstretch{1.2}
 
@@ -151,26 +136,13 @@
 \chapter*{Abstract}
 \pagestyle{plain}
 
-Write your abstract here.
+\begin{spacing}{2.0}
+	A holistic design and cost-efficient platform to construct self-driving systems is presented, with an emphasis on Linux-based software architectures for computer vision, control system, and inter-vehicle communication. Starting with an executable specification of autonomous car application, subsequent transformations are performed across different levels of abstraction until the final implementation is achieved. The software partitioning is facilitated through the integration of ROS and OpenCV in the same design environment, as well as closed-loop control algorithms and Linux in the run-time system. We built a rapid prototyping based on fundamentally open source technologies and hardware under 100 dollars USD, which allows developers to be explored and evaluated in realistic conditions efficiently. Using lane departure and the corresponding performance speedup, we show that our platform reduces the design time, while improving the verification efforts, with the aid of tweaked real-time executives.
+\end{spacing}
 
-\par{\noindent \bf Keyword:}{ Keyword1, Keyword2, Keyword3, Keyword4}
+\par{\noindent \bf Keyword:}{ Real Time Operating System, Self-driving, Robot Operating System}
 \clearpage
 \setstretch{1.2}
-
-
-% ------------------------------------------------
-%           誌謝 Acknowledgments(初稿不需要)
-% ------------------------------------------------
-\newpage
-\phantomsection
-\chapter*{誌謝}
-\pagestyle{plain}
-
-在這邊寫你的感謝 (對父母, 老師, 同學, 朋友等的感謝).
-
-\clearpage
-\setstretch{1.2}
-
 
 % ------------------------------------------------
 %              目錄 Index of contents
@@ -192,41 +164,6 @@ Write your abstract here.
 % -------------圖片索引-------------
 \listoffigures
 
-% ------------------------------------------------
-%              Nomenclature(optional)
-% ------------------------------------------------
-\newpage
-\phantomsection
-\chapter*{Nomenclature}
-\pagestyle{plain}
-
-\begin{center}
-  \begin{tabular}{C{0.2\textwidth} C{0.4\textwidth}}
-    \hline
-    \underline{Symbol} & \centerline{\underline{Description}} \\
-    $\alpha$	&	Symbol of alpha 	\\
-    $\beta$		&	Beta				\\
-    $\gamma$	&	Gamma				\\
-    \hline
-  \end{tabular}
-\end{center}
-
-\EmptyLine
-
-\begin{center}
-  \begin{tabular}{C{0.2\textwidth} C{0.4\textwidth} C{0.35\textwidth}}
-    \hline
-    \underline{Symbol} & \underline{Meaning} & \underline{SI unit of measure}	\\
-    $g$		&	Standard gravity	&	$9.80665 m/s^2$							\\
-    $c$		&	Speed of light		&	$\approx3.00\times108 m/s$				\\
-    $l$		&	Length				&	meter (m)								\\
- 	\hline
-  \end{tabular}
-  \vspace{0.1cm}\\{List of common physics notations}
-\end{center}
-\clearpage
-\setstretch{1.2}
-
 
 % ------------------------------------------------
 %                   Introduction
@@ -238,26 +175,17 @@ Write your abstract here.
 \chapter{Introduction}
 \pagestyle{plain}
 
-Write your introduction here.
+\begin{spacing}{2.0}
+
+As an example of autonomous vehicles, the Google Car has already succeeded in covering thousands of miles of real-road driving \cite{autonomous} with the promising benefits by increasing traffic efficiency \cite{traffic-flow}, reducing pollution \cite{reduce-pollution}, and eliminating up to 90\% of traffic accidents \cite{traffic-accident}. However, it is not straightforward for most people to build autonomous vehicles due to very high bill of materials (BOM) and insufficient system software infrastructure, that prevents from potential innovations and collobrations, especially to arising maker movement \cite{maker}.
+
+The goal of this research was to adapt open source foundation and to design algorithms for a self-driving miniature vehicle, which should be able to reliably follow lane markings, overtake stationary obstacles, and park automatically for inexpensive hardware configurations. We explicitly explore the possibility to not only exploit hardware components but also the software/hardware interface to read data from sensors and to control the actors for steering and acceleration, which was evaluated by various system services of the incorporation of the real-time extension for GNU/Linux. Afterwards, a short overview of the development process and the evaluation of the software is presented.
+
+\end{spacing}
 
 \clearpage
 \setstretch{1.2}
 
-
-% ------------------------------------------------
-%                    Objective
-% ------------------------------------------------
-% The objective of the paper is the reason given for writing the paper.
-
-\newpage
-\phantomsection
-\chapter{Objective}
-\pagestyle{plain}
-
-Write your objective here.
-
-\clearpage
-\setstretch{1.2}
 
 % ------------------------------------------------
 %                  Related Work
@@ -267,8 +195,241 @@ Write your objective here.
 \chapter{Related Work}
 \pagestyle{plain}
 
-Write your relatd work here.
+\begin{spacing}{2.0}
 
+In this section, we concentrate on currently available frameworks for the development of component-based embedded automotive and robotics software.
+
+In 2016, MIT CSAIL took students on a trip to "Duckietown" \cite{Duckietown} to create self-driving taxis that can navigate the roads of a model city with just a single on-board camera and no pre-programmed maps. Students developed algorithms to read traffic signs and notice pedestrian-ducks, and learned to integrate different disciplines like control theory, machine learning, and computer vision into their systems. Eventually, MIT distributes all the lecture materials, middleware, drivers, ROS modules, and etc. as open source software.
+
+AUTOSAR (AUTomotive Open System ARchitecture) is a standardized architecture for automotive software systems. Its primary focus is the system development process for electronic control units (ECU) and does not provide specific support for sensor/actuator-based autonomou ssystem development \cite{rtes}. An implementation of an AUTOSAR-compliant embedded software platform is Arctic Core \cite{arctic-core}, offering a real-time operating system, memory services, and communication services such as CAN and LIN.
+
+In recent years, the Robot Operating System (ROS) \cite{ROS} incorporates the simulationenvironment Player/Stage/Gazebo \cite{player/stage}, and it has been widely adopted as a meta-OS for many popular robotic platforms. The abstraction of physical sensors and actuators enables ROS to support a wide range of robotics platform and reuse of components by implementing publish-subscribe design pattern for inter-component communications.
+
+\end{spacing}
+
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%               System Architecture
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter{System Architecture}
+\pagestyle{plain}
+
+\begin{spacing}{2.0}
+
+Various hardware components e.g., sensors, motors, wireless devices, and ARM SoC are used for a self-driving miniature vehicle. When selecting the cost-efficient components, the general
+selection criteria were efficiency, low-power consumption, low-price, availability and extendability.
+
+The system allows the existence of multiple self-driving cars, enabling collaborative computer vision, map navigation, motor control, and wireless communications, shown in Figure \ref{fig:overall_arch}. It aggregates local pose graphs obtained from its multiple cars into a global pose graph, which it then reacts to the cars to increase their mapping and localization effectiveness.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm]{img/soft_arch.jpg}
+	\caption{System Architecture}
+	\label{fig:overall_arch}
+\end{figure}
+
+\subsection{Hardware}
+
+Despite limited the budget shown in Table \ref{hardware_list}, our autonomous vehicle prototype still has abilities of lane following, multiple car interaction and route planning.
+
+\begin{table}
+	\centering
+	\caption{Bill Of Materials}
+	\label{hardware_list}
+	\begin{tabular}{ll}
+		Hardware                & Budgets  \\
+		Raspberry Pi3 Model B   & 35.00 USD \\
+		Raspberry Pi camera     & 23.15 USD  \\
+		2S LiPo battery 1300mAh & 7.96 USD  \\
+		Sandisk 16G microSD     & 6.13 USD  \\
+		L298N motor driver      & 8.72 USD  \\
+		Car frame               & 12.44 USD  \\
+		DC voltage regulator    &  3.48 USD  \\
+		Total                   & 96.88 USD
+	\end{tabular}
+\end{table}
+
+\end{spacing}
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%                 Implementation
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter{Implementation}
+\pagestyle{plain}
+
+\begin{spacing}{2.0}
+
+\subsection{Hard Real-Time Operating System}
+
+RTOS guarantees the response time of real time task within specified time constraints \cite{RTOS}, often referred to as "deadline", and a hard real-time OS can always meet a deadline deterministically. We adopt Xenomai \cite{Xenomai}, an open source real-time Linux extension, allowing periodic preemptive hard real-time tasks along with typical Linux kernel and userspace. The Cobalt core in Xenomai 3 is a co-kernel which supplements the Linux kernel for delivering real-time services with very low latency \cite{rtlws2015}, shown in Figure \ref{fig:xeno_arch}, dealing with all time-critical events, such as interrupt handling, and scheduling real-time threads. Cobalt core, thereby has higher priority over Linux kernel. Our self-driving car benefits from deterministic behavior in Xenomai 3.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm]{img/xeno_arch.jpg}
+	\caption{Cobalt core in Xenomai 3}
+	\label{fig:xeno_arch}
+\end{figure}
+
+Most system use pulse width modulation (PWM) to simulate the analog signal for smooth motor controlling. PWM signals are often generated by certain hardware. On the contrary, using general-purpose input/output (GPIO) to simulate PWM signals is known as software PWM. We implement the later as a Xenomai kernel-mode real-time task to ensure the precision of PWM signal generation, named after KsoftPWM, for closed-loop control system, benefiting from the elimination of system call overhead and potential locks.
+
+\subsection{Lane Following Algorithm}
+
+Lane following algorithm is the core of the Puyuma, it consists the lane detector algorithm and self-driving algorithm. Lane detector algorithm provides pose information for the unmanned vehicle. The pose information contains lateral displacement and orientation of car.
+
+Our basic configuration was inspired by MIT Duckietown \cite{Duckietown}, and we created an artificial environment where the lane detector can be implemented in straightfoward ways. The lane detector detects segments from image, and identifies the lane by using several computer vision techniques like Canny edge detection, HSV color thresholding and Hough transform.
+
+We first cut out the sub-region from original image to increase the accuracy and using Homography Transform to change the camera view. After that, we use lane detector to detects the segments and calculate lane pose due to the lane geometry. Histogram filter is also used to make the prediction better. 
+
+After finished implementing the lane detector, we use the \textbf{PID Controller} algorithm to make the car smoothly driving on the road.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm]{img/lane_flow.png}
+	\caption{lane following algorithm work flow}
+	\label{fig:lane_following_flow}
+\end{figure}
+
+\subsubsection{Calibration}
+
+The camera was calibrated before we activated the controller. Two parameters are used to describe the relationship between image and real world: intrinsic matrix and extrinsic matrix.
+
+The intrinsic matrix is also refering to the camera projection, and it is regarded as an ideal linear model consists of focal length, pixel size and principal point, the non-linear effects like lens distortion[\ref{fig:intrinsic}] are usually solved numerically.
+
+The extrinsic matrix represents the rotation and translation of camera with respect to the world. A linear transformation called Homograpy is applied to the matrix, changing the camera view purely mathematically.
+
+Figure \ref{fig:extrinsic} shows the result of Homography transformation, we exploit the transformation for the lane detection algorithm, the result is usually called the bird view image or inverse perspective mapping.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm]{img/intrinsic.png}
+	\caption{Camera undistortion}
+	\label{fig:intrinsic}
+\end{figure}
+
+\begin{figure}	
+	\centering
+	\includegraphics[width=15cm]{img/extrinsic.png}
+	\caption{Homography transformation (ground projection)}
+	\label{fig:extrinsic}
+\end{figure}
+
+\subsubsection{Segment Detection}
+
+The lane segment detection is performed before pose estimation. We first cut out the bottom half image, and we called this the Region of Interest (ROI). The reason we only left with ROI is because lane segments have much more chance to locate there due to the camera projection. We then use Canny edge detection for contour finding, HSV color thresholding to search for specified color region and Hough transform to detect for straight lines.
+
+Figure \ref{fig:lane_detect} visualizes the lane pose and segments on the ROI region.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm]{img/lane_detect.png}
+	\caption{Segments visualization}
+	\label{fig:lane_detect}
+\end{figure}
+
+\subsubsection{Pose Estimation}
+
+After detecting the lines, we can generate lane pose for every segments according to the lane geometry. The lane pose $d$ and $phi$ represent the car lateral displacement and orientation angle. we later feed the poses into the histogram filter for a better prediction of the lane pose.
+
+\subsubsection{Histogram Filter}
+
+The histogram filter works like a vote box. We first filter out extreme value by finding the \textbf{mode}, then calculate the \textbf{mean} of the rest of the data. Higher vote pose will have higher chance to dominate the result.
+
+\subsubsection{Controller}
+
+Puyuma is a differential wheeled type car. There are two independent motors on two side. The car can be turned by changing the speed rate between two motors, therefore, it does not requires any steering mechanics. We use the \textbf{PID Control} algorithm to fix the orientation and lateral displacement.
+
+The pose controller is a cascaded PID controller. The $\phi$ controller is a low level controller for lane orientation stabilizing, and d controller fix the lateral displacement by changing the setpoint of $\phi$ controller to turn left or right.
+
+\begin{figure}	
+	\centering
+	\includegraphics[width=15cm]{img/controller.png}
+	\caption{Control Diagram}
+	\label{fig:controller}
+\end{figure}
+
+\end{spacing}
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%                   Performance
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter{Performance}
+\pagestyle{plain}
+
+\begin{spacing}{2.0}
+
+We executed tasks in user space, kernel space and irq task respectively, to evaluate real-time capability. We also compare performance among KsoftPWM, non-real-time PWM kernel module (nRTPKM) and WiringPi \cite{WiringPi}, the most famous library for GPIO controlling on Raspberry Pi 3 (Broadcom bcm2709 SoC, 1.2GHz ARM Cortex-A53 CPU). The background system load was generated by Linux Test Project (LTP) \cite{LTP}, which provides a collection of tools for validating the reliability, robustness, and stability of Linux. Unit of latency is microsecond in all measurement.
+
+\begin{figure}	
+	\centering
+	\includegraphics[width=10cm]{img/xenomai_load.png}
+	\caption{Xenomai Performance}
+	\label{fig:xeno_perf}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm]{img/xenomai_load_modify.png}
+	\caption{Customized Xenomai Performance}
+	\label{fig:xeno_perf_modify}
+\end{figure}
+
+\begin{table}[]
+\centering
+\caption{Maximum latency for Xenomai}
+\label{xeno_compare}
+\begin{tabular}{llll}
+                              & User task & Kernel task & IRQ task \\
+Xenomai with original kernel  & 76.067 us & 36.262 us   & 27.895us \\
+Xenomai with customized kernel & 42.678us  & 29.973us    & 27.11us 
+\end{tabular}
+\end{table}
+
+\subsection{System Real-Time Performance}
+
+Real-time performance is measured by stressing the system with LTP and applying cyclictest. \cite{cyclictest} We use LTP $-i$ and $-c$ flags to specify the background CPU load with multiple processes and accessing on IO bus. Our customized Linux kernel brings better real-time ability in both user and kernel space, shown in Figure \ref{fig:xeno_perf_modify}. Table \ref{xeno_compare} records the maximum latency for Xenomai.
+
+\subsection{Lane detector Performance}
+
+At present, the algorithms of lane detector is implemented by using with OpenCV version 2.4 as single-threaded task without specified CPU or GPU accelerations but yet leads to reasonaly fast response time while collaboring to ROS framework as Table \ref{lane_detector_condition} indicates.
+
+\begin{table}[!htbp]
+	\centering
+	\caption{Lane detector performance and test conditions}
+	\label{lane_detector_condition}
+	\begin{tabular}{ll}
+		Frame rate                      &10fps \\
+		Image format                    &8-bits RGB cv::Mat \\
+		Image size                      &320x240 px	 \\	
+		ROI size                        &320x120 px
+	\end{tabular}
+\end{table}
+
+It is possible to build 30\% faster OpenCV packages \cite{faster-opencv} optimized for Raspberry Pi 3 via ARM's advanced SIMD instruction \cite{arm-neon} and Intel's Threading Building Blocks \cite{intel-tbb} where the whole lane detector can be accelerated with code modifications.
+
+\subsection{KsoftPWM}
+
+The KsoftPWM outperforms in better real-time ability, shown in Figure \ref{fig:ksoftpwm_perf}. The latency distribution of WiringPi is similar to nRTPKM, since both of them are just normal Linux userspace tasks rather than hard real-time one. The difference of minimum latency between WiringPi and nRTPKM was caused by different implementation. nRTPKM uses sleep function to simulate the PWM signals while WiringPi uses busy-waiting delay which may cause higher system load.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm]{img/ksoftpwm_load.png}
+	\caption{PWM Task Performance}
+	\label{fig:ksoftpwm_perf}
+\end{figure}
+
+\end{spacing}
 \clearpage
 \setstretch{1.2}
 
@@ -280,31 +441,28 @@ Write your relatd work here.
 \chapter{Conclusion}
 \pagestyle{plain}
 
-Write your conclusion here.
+\begin{spacing}{2.0}
+
+This paper presents the hardware and software architecture of a self-driving miniature vehicle based entirely on cost-efficient components, that implies strategic values for the long term evaluation. RTOS should be very efficient in terms of resource usage and runtime. The context switching performance is important because the number of sensors can be high and we need to read data from different sensors continuously in real-time. Linux with real-time extension  fulfills all these criteria e.g., performance, reusability, changeability, and maintainability, which have significant value from the software engineer's perspective. Puyuma is released as an open source project as well as ROS, allowing further collaboration on algorithms and system integration.
+
+\end{spacing}
 
 \clearpage
 \setstretch{1.2}
 
 % ------------------------------------------------
-%                  \Cite Example
+%                   Acknowledge
 % ------------------------------------------------
 \newpage
 \phantomsection
-\chapter{Cite Example}
+\chapter{Acknowledge}
 \pagestyle{plain}
 
-This chapter shows how to use $\backslash$cite command. The $\backslash$cite command read the \textbf{.bib file} to find the references.
+\begin{spacing}{2.0}
 
-\begin{enumerate}
-  \item{point 1 \cite{test1}}
-  \item{point 2 \cite{test2}}
-    \begin{enumerate}
-      \item{point 2-1 \cite{test3}}
-      \item{point 2-2}
-    \end{enumerate}
-  \item{point 3 \cite{test4}}
-\end{enumerate}
+We would like to express our deep gratitude to Professor Nick Wang of National Chao Tung University in Taiwan for his enthusiastic encouragement on Duckietown lecture.
 
+\end{spacing}
 
 \clearpage
 \setstretch{1.2}
@@ -322,25 +480,8 @@ This chapter shows how to use $\backslash$cite command. The $\backslash$cite com
 \phantomsection
 \renewcommand\bibname{References}	% references title
 
-\bibliographystyle{ieeetr}			% reference style
-\bibliography{thesis}				% target .bib file
-
-\clearpage
-\setstretch{1.2}
-
-% ------------------------------------------------
-%                   附錄 Appendix
-% ------------------------------------------------
-\BeginAppendixChapter				% User-defined function
-\SetupAppendixNumberingFormat		% User-defined function
-\newpage
-\phantomsection
-\chapter{Title of Appendix A}
-
-Write your Appendix here.
-
-  \section{Dolor sit amet}
-    Appendix
+\bibliographystyle{IEEEtran}			% reference style
+\bibliography{example.bib}				% target .bib file
 
 \clearpage
 \setstretch{1.2}

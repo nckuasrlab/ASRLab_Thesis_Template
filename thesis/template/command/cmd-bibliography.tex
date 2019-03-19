@@ -1,0 +1,205 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% Some helper function about references and bibliography
+% 參考文獻或資料
+
+% Useful URL:
+% https://www.sharelatex.com/learn/Bibtex_bibliography_styles
+% http://ftp.isu.edu.tw/pub/Unix/CTAN/biblio/bibtex/contrib/apacite/apacite.pdf
+% https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+% https://verbosus.com/bibtex-style-examples.html
+% https://www.sharelatex.com/learn/Bibliography_management_with_bibtex
+%     -- Style Name --    | 	 -- Author Name Format --  |  -- Reference Format --  |  -- Sorting --
+%        plain                     |	       Homer Jay Simpson 	     |                  #ID# 	                  |   by author
+%        unsrt                    |	        Homer Jay Simpson       |	                 #ID#                     |	   as referenced
+%        abbrv                  |	             H. J. Simpson               |	                #ID#                     |	   by author
+%       alpha                   |	       Homer Jay Simpson       |	   Sim95                              |	   by author
+%      abstract              |	       Homer Jay Simpson      |	   Simpson-1995a
+%         acm                  |	            Simpson, H. J.              |	   #ID#
+%    authordate1      |	      Simpson, Homer Jay      |	   Simpson, 1995
+%         apa                  |	       Simpson, H. J. (1995)      |	   Simpson1995
+%        named            |	         Homer Jay Simpson     |	   Simpson 1995
+
+% 使用package 'apacite' 的話
+%         apacite                  |	       Ackerman, 1990
+
+% ----------------------------------------------------------------------------
+
+\newcommand{\TextDefaultTitleReferenceChi}{參考文獻}
+\newcommand{\TextDefaultTitleReferenceEng}{References}
+\newcommand{\TextDefaultTitleBibliographyEng}{Bibliography}
+
+% ----------------------------------------------------------------------------
+
+\begin{comment}
+% Bibliography style 使用的變數
+\newcommand{\BibStyleTypeAbbrv}{1}
+\newcommand{\BibStyleTypePlain}{2}
+\newcommand{\BibStyleTypeAlpha}{3}
+\newcommand{\BibStyleTypeApacite}{4}
+\newcommand{\BibStyleTypeVar}{\BibStyleTypePlain} % Default style: 'plain'
+\newcommand{\SetBibStyleTypeVar}[1]{\renewcommand{\BibStyleTypeVar}{#1}}
+\newcommand{\GetBibStyleTypeVar}{\BibStyleTypeVar}
+
+% 公開使用的APIs
+\newcommand{\BibStyleUseAbbrv}{\SetBibStyleTypeVar{\BibStyleTypeAbbrv}}
+\newcommand{\BibStyleUsePlain}{\SetBibStyleTypeVar{\BibStyleTypePlain}}
+\newcommand{\BibStyleUseAlpha}{\SetBibStyleTypeVar{\BibStyleTypeAlpha}}
+\newcommand{\BibStyleUseApacite}{\SetBibStyleTypeVar{\BibStyleTypeApacite}}
+
+% ----------------------------------------------------------------------------
+
+\newcommand{\VarReferenceTitle}{\VarReferenceTitleCustom}
+\newcommand{\SetReferenceTitle}[1]{\renewcommand{\VarReferenceTitle}{#1}}
+\newcommand{\GetReferenceTitle}{\VarReferenceTitle}
+
+\newcommand{\VarReferenceTitleChi}{參考文獻}
+\newcommand{\VarReferenceTitleEng}{References}
+\newcommand{\VarReferenceTitleCustom}{References / 參考文獻}
+
+\newcommand{\ChapterReferenceTitleInChi}{%
+  \SetReferenceTitle{\VarReferenceTitleChi}}
+\newcommand{\ChapterReferenceTitleInEng}{%
+  \SetReferenceTitle{\VarReferenceTitleEng}}
+\newcommand{\SetChapterReferenceTitle}[1]{\SetReferenceTitle{#1}}
+
+\ChapterReferenceTitleInEng % Default
+\end{comment}
+% ----------------------------------------------------------------------------
+
+\DeclareDocumentCommand{\ReferencesFiles}{%
+  G{\empty} G{\empty} G{\empty} %
+  G{\empty} G{\empty} G{\empty} %
+  G{\empty} G{\empty} G{\empty}}
+{%
+  \singlespacing%
+  \StartNewPage%
+  % ------------------------------------------------
+  %
+  \renewcommand\bibname{\GetReferenceTitle}
+  %
+  \bibliographystyle{\GetReferenceBibStyle}
+  %
+  % ------------------------------------------------
+  % Bib files
+  \ifthenelse{\equal{#9}{\empty}}
+  {%
+    \ifthenelse{\equal{#8}{\empty}}
+    {%
+      \ifthenelse{\equal{#7}{\empty}}
+      {%
+        \ifthenelse{\equal{#6}{\empty}}
+        {%
+          \ifthenelse{\equal{#5}{\empty}}
+          {%
+            \ifthenelse{\equal{#4}{\empty}}
+            {%
+              \ifthenelse{\equal{#3}{\empty}}
+              {%
+                \ifthenelse{\equal{#2}{\empty}}
+                {%
+                  \ifthenelse{\equal{#1}{\empty}}
+                  {} % End of if{}
+                  {\bibliography{#1}} % End of else{}
+                } % End of if{}
+                {%
+                  \bibliography{#1,#2}%
+                } % End of else{}
+              } % End of if{}
+              {%
+                \bibliography{#1,#2,#3}%
+              } % End of else{}
+            } % End of if{}
+            {%
+              \bibliography{#1,#2,#3,#4}%
+            } % End of else{}
+          } % End of if{}
+          {%
+            \bibliography{#1,#2,#3,#4,#5}%
+          } % End of else{}
+        } % End of if{}
+        {%
+          \bibliography{#1,#2,#3,#4,#5,#6}%
+        } % End of else{}
+      } % End of if{}
+      {%
+        \bibliography{#1,#2,#3,#4,#5,#6,#7}%
+      } % End of else{}
+    } % End of if{}
+    {%
+      \bibliography{#1,#2,#3,#4,#5,#6,#7,#8}%
+    } % End of else{}
+  } % End of if{}
+  {%
+    \bibliography{#1,#2,#3,#4,#5,#6,#7,#8,#9}%
+  } % End of else{}
+  % ------------------------------------------------
+  \EndChapter%
+} % End of \DeclareDocumentCommand{}
+
+% ----------------------------------------------------------------------------
+
+\pgfkeys
+{
+  /SetupReference/.is family, /SetupReference,
+  default/.style =
+  {
+    Title = {\TextDefaultTitleReferenceEng},
+    BibStyle = {plain},
+  },
+  Title/.estore in = \GetReferenceTitle,
+  BibStyle/.estore in = \GetReferenceBibStyle,
+} % End of \pgfkeys{}
+
+\newcommand\SetupReference[1]
+{%
+  \pgfkeys{/SetupReference, default, #1}%
+  %
+  % Include package<apacite> if needed
+  \ifthenelse{\equal{\GetReferenceBibStyle}{apacite}}%
+  {\usepackage[notocbib]{apacite}}{}
+} % End of \newcommand{}
+
+% -----------------------------------------------
+
+% Default
+% Title: References
+% Style: plain
+\SetupReference{%
+  Title = {\TextDefaultTitleReferenceEng},
+  BibStyle = {plain},
+} % End of \SetupReference{}
+
+% ----------------------------------------------------------------------------
+
+\newcommand{\SetChapterReferenceTitle}{\errmessage{模版: 由v1.4.6開始, SetChapterReferenceTitle已不能再使用. 請參考最新版的conf.tex中SetupReference的使用方式.}\stop}
+
+\newcommand{\ChapterReferenceTitleInChi}{\errmessage{模版: 由v1.4.6開始, ChapterReferenceTitleInChi已不能再使用. 請參考最新版的conf.tex中SetupReference的使用方式.}\stop}
+
+\newcommand{\ChapterReferenceTitleInEng}{\errmessage{模版: 由v1.4.6開始, ChapterReferenceTitleInEng已不能再使用. 請參考最新版的conf.tex中SetupReference的使用方式.}\stop}
+
+\newcommand{\BibStyleUseAbbrv}{\errmessage{模版: 由v1.4.6開始, BibStyleUseAbbrv已不能再使用. 請參考最新版的conf.tex中SetupReference的使用方式.}\stop}
+
+\newcommand{\BibStyleUsePlain}{\errmessage{模版: 由v1.4.6開始, BibStyleUsePlain已不能再使用. 請參考最新版的conf.tex中SetupReference的使用方式.}\stop}
+
+\newcommand{\BibStyleUseAlpha}{\errmessage{模版: 由v1.4.6開始, BibStyleUseAlpha已不能再使用. 請參考最新版的conf.tex中SetupReference的使用方式.}\stop}
+
+\newcommand{\BibStyleUseApacite}{\errmessage{模版: 由v1.4.6開始, BibStyleUseApacite已不能再使用. 請參考最新版的conf.tex中SetupReference的使用方式.}\stop}

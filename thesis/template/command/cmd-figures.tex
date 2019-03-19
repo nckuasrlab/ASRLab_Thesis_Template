@@ -1,0 +1,367 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% ----------------------------------------------------------------------------
+%
+% http://tex.stackexchange.com/questions/34312/how-to-create-a-command-with-key-values
+%
+% 用\begin{figure} .. \end{figure}
+% 可能會出現問題
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ouparmd
+%
+% ----------------------------------------------------------------------------
+
+\pgfkeys
+{
+  /InsertFigures/.is family, /InsertFigures,
+  default/.style =
+  {
+    perrow = 1,
+    caption = \empty,
+    label = \empty,
+    align = \empty,      % Useless, for backporting
+    opacity = 0.4,
+  },
+  perrow/.estore in = \TmpMIValueImagePerRow,
+  caption/.estore in = \TmpMIValueCaption,
+  label/.estore in = \TmpMIValueLabel,
+  align/.estore in = \TmpMIValueAlign,      % Useless, for backporting
+  opacity/.estore in = \TmpValueOpacity,
+} % End of \pgfkeys{}
+
+% Insert multi-figure
+% Arg: 1st: Table configure
+%      2~9th: Figure (Max 8 Figures)
+\DeclareDocumentCommand{\InsertFigures}{
+  +O{\empty} +m +G{\empty} +G{\empty} +G{\empty}
+  +G{\empty} +G{\empty} +G{\empty} +G{\empty}}
+{
+  % Parse the input
+  \pgfkeys{/InsertFigures, default, #1}%
+  %
+  \begin{figure}[H]%
+  \begin{minipage}[c]{\textwidth}%
+  \begin{mdframed}[skipabove=0pt, skipbelow=0pt, leftmargin=0pt, rightmargin=0pt,
+    innerleftmargin=0pt, innerrightmargin=0pt, innertopmargin=0pt,
+    innerbottommargin=0pt, linewidth=0pt, apptotikzsetting={%
+    \tikzset{mdfbackground/.append style={opacity=\TmpValueOpacity}}}]%
+      \if \TmpMIValueImagePerRow 1
+        \InsertFiguresOnePerRow{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}%
+      \fi
+      \if \TmpMIValueImagePerRow 2
+        \InsertFiguresTwoPerRow{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}%
+      \fi
+      \if \TmpMIValueImagePerRow 3
+        \InsertFiguresThreePerRow{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}%
+      \fi
+      \if \TmpMIValueImagePerRow 4
+        \InsertFiguresFourPerRow{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}%
+      \fi
+      %
+  \end{mdframed}%
+  \end{minipage}%
+  % Set Caption and Label
+  \SetFigureCaptionAndLabel{\TmpMIValueCaption}{\TmpMIValueLabel}
+  \end{figure}%
+} % End of \newcommand{}
+
+% Low-level insert image
+\newcommand{\InsertSubfigureBox}[2]
+{
+  \begin{subfigure}{#1\textwidth}%
+  \centering
+  %
+  \InsertFiguresSubFigure#2
+  % Set Caption and Label
+  \SetFigureCaptionAndLabel{%
+    \TmpMISubValueCaption}{\TmpMISubValueLabel}
+  \end{subfigure}
+} % End of \newcommand{}
+
+%----------------------------------------------------------------
+
+\newcommand{\InsertSubfigureOneFigure}[1]
+{
+  \InsertSubfigureBox{1.0}{#1}
+} % End of \newcommand{}
+
+\newcommand{\InsertSubfigureTwoFigure}[2]
+{
+  \InsertSubfigureBox{0.5}{#1}%
+  ~
+  \InsertSubfigureBox{0.5}{#2}%
+} % End of \newcommand{}
+
+\newcommand{\InsertSubfigureThreeFigure}[3]
+{
+  \InsertSubfigureBox{0.315}{#1}%
+  ~
+  \InsertSubfigureBox{0.315}{#2}%
+  ~
+  \InsertSubfigureBox{0.315}{#3}%
+} % End of \newcommand{}
+
+\newcommand{\InsertSubfigureFourFigure}[4]
+{
+  \InsertSubfigureBox{0.225}{#1}%
+  ~
+  \InsertSubfigureBox{0.225}{#2}%
+  ~
+  \InsertSubfigureBox{0.225}{#3}%
+  ~
+  \InsertSubfigureBox{0.225}{#4}%
+} % End of \newcommand{}
+
+%----------------------------------------------------------------
+
+\DeclareDocumentCommand{\InsertFiguresOnePerRow}{
+  +m                   +G{\empty} +G{\empty} +G{\empty}
+  +G{\empty} +G{\empty} +G{\empty} +G{\empty}}
+{
+  \InsertSubfigureOneFigure{#1}
+  %
+  \ifthenelse{\equal{#2}{\empty}}{}%
+  {
+
+    \InsertSubfigureOneFigure{#2}
+  }%
+  %
+  \ifthenelse{\equal{#3}{\empty}}{}%
+  {
+
+    \InsertSubfigureOneFigure{#3}
+  }%  %
+  \ifthenelse{\equal{#4}{\empty}}{}%
+  {
+
+    \InsertSubfigureOneFigure{#4}
+  }%  %
+  \ifthenelse{\equal{#5}{\empty}}{}%
+  {
+
+    \InsertSubfigureOneFigure{#5}
+  }%  %
+  \ifthenelse{\equal{#6}{\empty}}{}%
+  {
+
+    \InsertSubfigureOneFigure{#6}
+  }%  %
+  \ifthenelse{\equal{#7}{\empty}}{}%
+  {
+
+    \InsertSubfigureOneFigure{#7}
+  }%  %
+  \ifthenelse{\equal{#8}{\empty}}{}%
+  {
+
+    \InsertSubfigureOneFigure{#8}
+  }%
+} % End of \newcommand{}
+
+\DeclareDocumentCommand{\InsertFiguresTwoPerRow}{
+  +m                   +G{\empty} +G{\empty} +G{\empty}
+  +G{\empty} +G{\empty} +G{\empty} +G{\empty}}
+{
+  %
+  \ifthenelse{\equal{#2}{\empty}}%
+  {
+    \InsertSubfigureOneFigure{#1}%
+  }%
+  {
+    \InsertSubfigureTwoFigure{#1}{#2}%
+  }%
+  %
+  \ifthenelse{\equal{#4}{\empty}}%
+  {
+    \ifthenelse{\equal{#3}{\empty}}{}%
+    {
+
+      \InsertSubfigureOneFigure{#3}%
+    }%
+  }%
+  {
+
+    \InsertSubfigureTwoFigure{#3}{#4}%
+  }%
+  %
+  \ifthenelse{\equal{#6}{\empty}}%
+  {
+    \ifthenelse{\equal{#5}{\empty}}{}%
+    {
+
+      \InsertSubfigureOneFigure{#5}%
+    }%
+  }%
+  {
+
+    \InsertSubfigureTwoFigure{#5}{#6}%
+  }%
+  %
+  \ifthenelse{\equal{#8}{\empty}}%
+  {
+    \ifthenelse{\equal{#7}{\empty}}{}%
+    {
+
+      \InsertSubfigureOneFigure{#7}%
+    }%
+  }%
+  {
+
+    \InsertSubfigureTwoFigure{#7}{#8}%
+  }%
+} % End of \newcommand{}
+
+\DeclareDocumentCommand{\InsertFiguresThreePerRow}{
+  +m                   +G{\empty} +G{\empty} +G{\empty}
+  +G{\empty} +G{\empty} +G{\empty} +G{\empty}}
+{
+  \ifthenelse{\equal{#3}{\empty}}%
+  {
+    \ifthenelse{\equal{#2}{\empty}}%
+    {
+      \InsertSubfigureOneFigure{#1}%
+    }%
+    {
+      \InsertSubfigureTwoFigure{#1}{#2}%
+    }%
+  }%
+  {
+    \InsertSubfigureThreeFigure{#1}{#2}{#3}%
+  }%
+  %
+  \ifthenelse{\equal{#6}{\empty}}%
+  {
+    \ifthenelse{\equal{#5}{\empty}}%
+    {
+
+      \InsertSubfigureOneFigure{#4}%
+    }%
+    {
+
+      \InsertSubfigureTwoFigure{#4}{#5}%
+    }%
+  }%
+  {
+
+    \InsertSubfigureThreeFigure{#4}{#5}{#6}%
+  }%
+  %
+  \ifthenelse{\equal{#8}{\empty}}%
+  {
+    \ifthenelse{\equal{#7}{\empty}}{}%
+    {
+
+      \InsertSubfigureOneFigure{#7}%
+    }%
+  }%
+  {
+
+    \InsertSubfigureTwoFigure{#7}{#8}%
+  }%
+} % End of \newcommand{}
+
+\DeclareDocumentCommand{\InsertFiguresFourPerRow}{
+  +m                   +G{\empty} +G{\empty} +G{\empty}
+  +G{\empty} +G{\empty} +G{\empty} +G{\empty}}
+{
+  %
+  \ifthenelse{\equal{#4}{\empty}}%
+  {
+    \ifthenelse{\equal{#3}{\empty}}%
+    {
+      \ifthenelse{\equal{#2}{\empty}}%
+      {
+        \InsertSubfigureOneFigure{#1}%
+      }%
+      {
+        \InsertSubfigureTwoFigure{#1}{#2}%
+      }%
+    }%
+    {
+      \InsertSubfigureThreeFigure{#1}{#2}{#3}%
+    }%
+  }%
+  {
+    \InsertSubfigureFourFigure{#1}{#2}{#3}{#4}%
+  }%
+  %
+  \ifthenelse{\equal{#8}{\empty}}%
+  {
+    \ifthenelse{\equal{#7}{\empty}}%
+    {
+      \ifthenelse{\equal{#6}{\empty}}%
+      {
+
+        \InsertSubfigureOneFigure{#5}%
+      }%
+      {
+
+        \InsertSubfigureTwoFigure{#5}{#6}%
+      }%
+    }%
+    {
+
+      \InsertSubfigureThreeFigure{#5}{#6}{#7}%
+    }%
+  }%
+  {
+
+    \InsertSubfigureFourFigure{#5}{#6}{#7}{#8}%
+  }%
+} % End of \newcommand{}
+
+% ----------------------------------------------------------------------------
+
+\pgfkeys
+{
+  /InsertFiguresSubFigure/.is family, /InsertFiguresSubFigure,
+  default/.style =
+  {
+    scale = 1.0,
+    angle = 0,
+    caption = \empty,
+    label = \empty,
+    align = \empty,      % Useless, for backporting
+  },
+  scale/.estore in = \TmpMISubValueScale,
+  angle/.estore in = \TmpMISubValueAngle,
+  caption/.estore in = \TmpMISubValueCaption,
+  label/.estore in = \TmpMISubValueLabel,
+  align/.estore in = \TmpMISubValueAlign,      % Useless, for backporting
+} % End of \pgfkeys{}
+
+% Low-level insert image
+\newcommand{\InsertFiguresSubFigure}[2][\empty]
+{
+  % Parse the input
+  \pgfkeys{/InsertFiguresSubFigure, default, #1}
+  %
+  \includegraphics[
+    scale=\TmpMISubValueScale,
+    angle=\TmpMISubValueAngle]{#2}
+  %
+} % End of \newcommand{}
+
+% ----------------------------------------------------------------------------
+
+% 過去的API, 以 Error提醒不能再使用
+\newcommand{\InsertMultiImages}{\errmessage{模版: 由v1.4.1開始, InsertCenterImage已不能再使用, 請改使用InsertFigures.}\stop}
+
+% -----------------------------------------------------------------

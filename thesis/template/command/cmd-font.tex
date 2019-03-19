@@ -1,0 +1,338 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% ----------------------------------------------------------------------------
+
+% Some helper function about font
+
+% Reference from
+% <http://texdoc.net/texmf-dist/doc/latex/fontspec/fontspec.pdf>
+
+% ----------------------------------------------------------------------------
+
+% Type TimesKaiu
+% Eng: Times New Roman
+% Chi: 標楷體
+\def \VarFontTypeTimesKaiuEngFileNameNormal {times.ttf}
+\def \VarFontTypeTimesKaiuEngFileNameItalic {timesi.ttf}
+\def \VarFontTypeTimesKaiuEngFileNameBold {timesbd.ttf}
+\def \VarFontTypeTimesKaiuEngFileNameBoldItalic {timesbi.ttf}
+\def \VarFontTypeTimesKaiuChiFileNameNormal {kaiu.ttf}
+
+\newcommand{\VarFontTypeTimesKaiu}{0}
+
+% -------------------------------------------
+
+% Type Noto Sans CJK (Eng & Chi)
+\def \VarFontTypeNotoSansCJKEngFileNameNormal {NotoSansCJKtc-Medium.otf}
+\def \VarFontTypeNotoSansCJKEngFileNameBold {NotoSansCJKtc-Bold.otf}
+\def \VarFontTypeNotoSansCJKChiFileNameNormal {NotoSansCJKtc-Medium.otf}
+\def \VarFontTypeNotoSansCJKChiFileNameBold {NotoSansCJKtc-Bold.otf}
+
+\newcommand{\VarFontTypeNotoSansCJK}{1}
+
+% -------------------------------------------
+
+% Custom type
+% Font files is needed to be provided
+% Default it is the Type TimesKaiu
+\def \VarFontTypeCustomEngFileNameNormal {times.ttf} % Default
+\def \VarFontTypeCustomEngFileNameItalic {timesi.ttf} % Default
+\def \VarFontTypeCustomEngFileNameBold {timesbd.ttf} % Default
+\def \VarFontTypeCustomEngFileNameBoldItalic {timesbi.ttf} % Default
+\def \VarFontTypeCustomChiFileNameNormal {kaiu.ttf} % Default
+\def \VarFontTypeCustomChiFileNameItalic {} % Default
+\def \VarFontTypeCustomChiFileNameBold {} % Default
+\def \VarFontTypeCustomChiFileNameBoldItalic {} % Default
+
+\pgfkeys
+{
+  /ParseCustomFontFiles/.is family, /ParseCustomFontFiles,
+  default/.style =
+  {
+    NormalFont = \empty,
+    ItalicFont = \empty,
+    BoldFont = \empty,
+    BoldItalicFont = \empty,
+  },
+  NormalFont/.estore in = \TmpValueNormalFont,
+  ItalicFont/.estore in = \TmpValueItalicFont,
+  BoldFont/.estore in = \TmpValueBoldFont,
+  BoldItalicFont/.estore in = \TmpValueBoldItalicFont,
+} % End of \pgfkeys{}
+
+\newcommand{\SetCustomEngFontFiles}[1][\empty]
+{%
+  \SetFontUseType{\VarFontTypeCustom}
+  %
+  % Parse the input
+  \pgfkeys{/ParseCustomFontFiles, default, #1}%
+  %
+  \ifthenelse{\equal{\TmpValueNormalFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomEngFileNameNormal}{%
+        \TmpValueNormalFont}}%
+  \ifthenelse{\equal{\TmpValueItalicFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomEngFileNameItalic}{%
+        \TmpValueItalicFont}}%
+  \ifthenelse{\equal{\TmpValueBoldFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomEngFileNameBold}{%
+        \TmpValueBoldFont}}%
+  \ifthenelse{\equal{\TmpValueBoldItalicFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomEngFileNameBoldItalic}{%
+        \TmpValueBoldItalicFont}}%
+} % End of \newcommand{}
+
+\newcommand{\SetCustomChiFontFiles}[1][\empty]
+{%
+  \SetFontUseType{\VarFontTypeCustom}
+  %
+  % Parse the input
+  \pgfkeys{/ParseCustomFontFiles, default, #1}%
+  %
+  \ifthenelse{\equal{\TmpValueNormalFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomChiFileNameNormal}{%
+        \TmpValueNormalFont}}%
+  \ifthenelse{\equal{\TmpValueItalicFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomChiFileNameItalic}{%
+        \TmpValueItalicFont}}%
+  \ifthenelse{\equal{\TmpValueBoldFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomChiFileNameBold}{%
+        \TmpValueBoldFont}}%
+  \ifthenelse{\equal{\TmpValueBoldItalicFont}{\empty}}{}{%
+    \renewcommand{\VarFontTypeCustomChiFileNameBoldItalic}{%
+        \TmpValueBoldItalicFont}}%
+} % End of \newcommand{}
+
+\newcommand{\VarFontTypeCustom}{10}
+
+% -------------------------------------------
+
+\def \VarFontDirPath {./template/fonts/} % Fix font path
+\def \GetFontDirPath {\VarFontDirPath}
+
+\newcommand{\VarFontUseType}{\VarFontTypeTimesKaiu} % Default
+\newcommand{\GetFontUseType}{\VarFontUseType}
+\newcommand{\SetFontUseType}[1]
+{%
+  \renewcommand{\VarFontUseType}{#1}%
+} % End of \newcommand{}
+
+% -------------------------------------------
+
+\pgfkeys
+{
+  /ParseFontOption/.is family, /ParseFontOption,
+  default/.style =
+  {
+    NormalFont = \empty,
+    ItalicFont = \empty,
+    BoldFont = \empty,
+    BoldItalicFont = \empty,
+  },
+  NormalFont/.estore in = \TmpValueNormalFont,
+  ItalicFont/.estore in = \TmpValueItalicFont,
+  BoldFont/.estore in = \TmpValueBoldFont,
+  BoldItalicFont/.estore in = \TmpValueBoldItalicFont,
+} % End of \pgfkeys{}
+
+\newcommand{\SetEngMainFont}[2][\empty]
+{%
+  % Parse the input
+  \pgfkeys{/ParseFontOption, default, #1}%
+  %
+  \defaultfontfeatures[#2]{%
+    Path = \GetFontDirPath,
+    UprightFont = \TmpValueNormalFont
+  }%
+  %
+  \ifthenelse{\equal{\TmpValueItalicFont}{\empty}}{}{%
+    \defaultfontfeatures+[#2]{%
+      ItalicFont = \TmpValueItalicFont}}%
+  \ifthenelse{\equal{\TmpValueBoldFont}{\empty}}{}{%
+    \defaultfontfeatures+[#2]{%
+      BoldFont = \TmpValueBoldFont}}%
+  \ifthenelse{\equal{\TmpValueBoldItalicFont}{\empty}}{}{%
+    \defaultfontfeatures+[#2]{%
+      BoldItalicFont = \TmpValueBoldItalicFont}}%
+  %
+  \setmainfont{#2}
+} % End of \newcommand{}
+
+\newcommand{\SetChiMainFont}[2][\empty]
+{%
+  % Parse the input
+  \pgfkeys{/ParseFontOption, default, #1}%
+  %
+  \setCJKmainfont[%
+    Path = \GetFontDirPath,
+    UprightFont = \TmpValueNormalFont,
+    AutoFakeBold = true,
+    AutoFakeSlant = true,
+  ]{#2}%
+  %
+  \ifthenelse{\equal{\TmpValueItalicFont}{\empty}}{}{%
+    \addCJKfontfeatures*{ItalicFont = \TmpValueItalicFont}}%
+  \ifthenelse{\equal{\TmpValueBoldFont}{\empty}}{}{%
+    \addCJKfontfeatures*{BoldFont = \TmpValueBoldFont}}%
+  \ifthenelse{\equal{\TmpValueBoldItalicFont}{\empty}}{}{%
+    \addCJKfontfeatures*{BoldItalicFont = \TmpValueBoldItalicFont}}%
+  %
+  %\setCJKmathfont{#2}%
+} % End of \newcommand{}
+
+\newcommand{\SetEngFontFamily}[1]
+{%
+  \fontspec{#1}
+} % End of \newcommand{}
+
+\newcommand{\SetChiFontFamily}[1]
+{%
+  \CJKfontspec{#1}%
+} % End of \newcommand{}
+
+% -------------------------------------------
+
+\def \UseFontStyleTimesKaiu
+{
+  \SetEngFontFamily{TimesKaiuEngFont}%
+  \SetChiFontFamily{TimesKaiuChiFont}%
+} % End of \newcommand{}
+
+\def \InitFontStyleTimesKaiu
+{
+  \SetEngMainFont[%
+    NormalFont = \VarFontTypeTimesKaiuEngFileNameNormal,%
+    ItalicFont = \VarFontTypeTimesKaiuEngFileNameItalic,%
+    BoldFont = \VarFontTypeTimesKaiuEngFileNameBold,%
+    BoldItalicFont = \VarFontTypeTimesKaiuEngFileNameBoldItalic,%
+    ]{TimesKaiuEngFont}%
+  \SetChiMainFont[%
+    NormalFont = \VarFontTypeTimesKaiuChiFileNameNormal,%
+    ]{TimesKaiuChiFont}%
+} % End of \newcommand{}
+
+% -------------------------------------------
+
+\def \UseFontStyleNotoSansCJK
+{
+  \SetEngFontFamily{NotoSansCJKEngFont}%
+  \SetChiFontFamily{NotoSansCJKChiFont}%
+} % End of \newcommand{}
+
+\def \InitFontStyleNotoSansCJK
+{
+  \SetEngMainFont[%
+    NormalFont = \VarFontTypeNotoSansCJKEngFileNameNormal,%
+    BoldFont = \VarFontTypeNotoSansCJKEngFileNameBold,%
+    ]{NotoSansCJKEngFont}%
+  \SetChiMainFont[%
+    NormalFont = \VarFontTypeNotoSansCJKEngFileNameNormal,%
+    BoldFont = \VarFontTypeNotoSansCJKEngFileNameBold,%
+    ]{NotoSansCJKChiFont}%
+} % End of \newcommand{}
+
+% -------------------------------------------
+
+\def \UseFontStyleCustom
+{
+  \SetEngFontFamily{CustomEngFont}%
+  \SetChiFontFamily{CustomChiFont}%
+} % End of \newcommand{}
+
+\def \InitFontStyleCustom
+{
+  \SetEngMainFont[%
+    NormalFont = \VarFontTypeCustomEngFileNameNormal,%
+    ItalicFont = \VarFontTypeCustomEngFileNameItalic,%
+    BoldFont = \VarFontTypeCustomEngFileNameBold,%
+    BoldItalicFont = \VarFontTypeCustomEngFileNameBoldItalic,%
+    ]{CustomEngFont}%
+  \SetChiMainFont[%
+    NormalFont = \VarFontTypeCustomChiFileNameNormal,%
+    ItalicFont = \VarFontTypeCustomChiFileNameItalic,%
+    BoldFont = \VarFontTypeCustomChiFileNameBold,%
+    BoldItalicFont = \VarFontTypeCustomChiFileNameBoldItalic,%
+    ]{CustomChiFont}%
+} % End of \newcommand{}
+
+% -------------------------------------------
+
+\newcommand{\UseDefaultFontType}
+{%
+  \if \GetFontUseType \VarFontTypeTimesKaiu%
+    \UseFontStyleTimesKaiu%
+  \fi%
+%
+  \if \GetFontUseType \VarFontTypeNotoSansCJK%
+    \UseFontStyleNotoSansCJK%
+  \fi%
+
+  \if \GetFontUseType \VarFontTypeCustom%
+    \UseFontStyleCustom%
+  \fi%
+} % End of \newcommand{}
+
+\newcommand{\InitDefaultFontType}
+{%
+  \if \GetFontUseType \VarFontTypeTimesKaiu%
+    \InitFontStyleTimesKaiu%
+  \fi%
+%
+  \if \GetFontUseType \VarFontTypeNotoSansCJK%
+    \InitFontStyleNotoSansCJK%
+  \fi%
+
+  \if \GetFontUseType \VarFontTypeCustom%
+    \InitFontStyleCustom%
+  \fi%
+} % End of \newcommand{}
+
+% -------------------------------------------
+
+%\setmathrm{hfont namei}[hfont featuresi]
+%\setmathsf{hfont namei}[hfont featuresi]
+%\setmathtt{hfont namei}[hfont featuresi]
+%\setboldmathrm{hfont namei}[hfont featuresi]
+
+% ----------------------------------------------------------------------------
+
+% 原本提供用來給自行設定字型,
+% 但發現轉換字型時好像有問題,
+% 加入成TODO List
+
+%\UseFontStyleTimesKaiu
+%\UseFontStyleNotoSansCJK
+%\UseFontStyleCustom
+
+% .ttf/.otf
+%\SetCustomEngFontFiles[%
+%    NormalFont = custom_font.ttf,%
+%    ItalicFont = custom_font.ttf,%
+%    BoldFont = custom_font.ttf,%
+%    BoldItalicFont = custom_font.ttf,%
+%    ]%
+%\SetCustomChiFontFiles[%
+%    NormalFont = custom_font.ttf,%
+%    ItalicFont = custom_font.ttf,%
+%    BoldFont = custom_font.ttf,%
+%    BoldItalicFont = custom_font.ttf,%
+%    ]%
+
+% ----------------------------------------------------------------------------

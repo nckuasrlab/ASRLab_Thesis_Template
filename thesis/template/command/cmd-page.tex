@@ -1,0 +1,57 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% Some helper function about page
+
+% ----------------------------------------------------------------------------
+
+\newcommand{\StartNewPage}
+{
+  % Page start
+  \newpage
+  \phantomsection
+} % End of \newcommand{}
+
+\newcommand{\EndOfPage}
+{
+  % End of page
+  \clearpage
+} % End of \newcommand{}
+
+% ----------------------------------------------------------------------------
+
+% 圖書館要求中/英文摘要是由羅馬數字頁碼'i'開始, 而非由封面算起.
+
+\def\ValueEnablePageNumberCounting{1}
+\def\ValueDisablePageNumberCounting{0}
+\def\VarPageNumberCounting{\ValueEnablePageNumberCounting}
+\def\GetPageNumberCounting{\VarPageNumberCounting}
+\newcommand{\SetPageNumberCounting}[1]{\renewcommand{\VarPageNumberCounting}{#1}}
+
+\def\ResetPageNumberCounting{%
+  \ifthenelse{\equal{\GetPageNumberCounting}{\ValueEnablePageNumberCounting}}%
+  {%
+    \setcounter{page}{1}
+    \SetPageNumberCounting{\ValueDisablePageNumberCounting}%
+  }%
+  {}%
+} % End of \def{}
+
+% ----------------------------------------------------------------------------

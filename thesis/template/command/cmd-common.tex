@@ -1,0 +1,87 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% Some common helper function
+
+% ----------------------------------------------------------------------------
+
+% Some helper functions
+
+\newcommand{\GetMonthInEng}[1]
+{%
+  \ifthenelse{\equal{#1}{1}}{January}{}%
+  \ifthenelse{\equal{#1}{2}}{February}{}%
+  \ifthenelse{\equal{#1}{3}}{March}{}%
+  \ifthenelse{\equal{#1}{4}}{April}{}%
+  \ifthenelse{\equal{#1}{5}}{May}{}%
+  \ifthenelse{\equal{#1}{6}}{June}{}%
+  \ifthenelse{\equal{#1}{7}}{July}{}%
+  \ifthenelse{\equal{#1}{8}}{August}{}%
+  \ifthenelse{\equal{#1}{9}}{September}{}%
+  \ifthenelse{\equal{#1}{10}}{October}{}%
+  \ifthenelse{\equal{#1}{11}}{November}{}%
+  \ifthenelse{\equal{#1}{12}}{December}{}%
+} % End of \newcommand{}
+
+% 計算出台灣民國幾年
+% Get the year using Taiwans' year
+\newcommand{\SetOralTaiwanYear}[1]%
+{%
+  \FPeval{\OralTaiwanYearResult}{clip(#1 - 1911)}%
+} % End of \newcommand{}
+
+% 計算出台灣民國幾年
+% Get the year using Taiwans' year
+\newcommand{\SetThesisTaiwanYear}[1]%
+{%
+  \FPeval{\ThesisTaiwanYearResult}{clip(#1 - 1911)}%
+} % End of \newcommand{}
+
+% ----------------------------------------------------------------------------
+
+% In the minimal example below the macro \modulo{<a>}{<b>} stores the result of <a> mod <b> in the macro \result
+\newcommand{\modulo}[2]{%
+  \FPeval{\result}{trunc(#1-(#2*trunc(#1/#2,0)),0)}%
+}
+
+% ----------------------------------------------------------------------------
+
+% 定義了 fmpage: 一個加框的展示區 framed minipage
+% http://brunoj.wordpress.com/2009/10/08/latex-the-framed-minipage/
+\newsavebox{\fmbox}
+\newenvironment{fmpage}[1]
+{\begin{lrbox}{\fmbox}\begin{minipage}{#1}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}}}
+
+% ----------------------------------------------------------------------------
+
+\newcommand{\EmptyLine}{\ \\ \par}
+
+% ----------------------------------------------------------------------------
+
+\global\mdfdefinestyle{DescriptionFrameStyle}{%
+  linewidth=1pt, apptotikzsetting={%
+    \tikzset{mdfbackground/.append style={opacity=0.75}}}%
+} % End of \mdfdefinestyle{}
+\newenvironment{DescriptionFrame}%
+{\begin{mdframed}[style=DescriptionFrameStyle]}%
+{\end{mdframed}}
+
+% ----------------------------------------------------------------------------

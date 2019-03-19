@@ -1,0 +1,94 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% ----------------------------------------------------------------------------
+
+%\def\singlespacing{%
+%    \def\default@spacing{\baselineskip=15.5pt plus .5pt minus .2pt}}
+\begin{comment}
+\makeatletter
+
+% Regular text spacing
+\def\doublespacing{%
+    \def\default@spacing{\baselineskip=20pt plus .5pt minus .2pt}}
+\def\onehalfspacing{%
+    \def\default@spacing{\baselineskip=20.5pt plus .5pt minus .2pt}}
+\def\singlespacing{%
+    \def\default@spacing{\baselineskip=15.5pt plus .5pt minus .2pt}}
+\def\specialspacing{%
+    \def\default@spacing{\baselineskip=21.5pt plus .5pt minus .2pt}}
+
+\makeatother
+\end{comment}
+% ----------------------------------------------------------------------------
+
+% 設定段落之間的距離
+%\setlength{\parskip}{0.3cm}
+  %
+  % Reset page
+%  \setlength{\parindent}{1.5em}
+%  \baselineskip=26pt
+  %
+  % Set page
+  %\baselineskip=15pt
+%  \setlength{\parindent}{0.0pt}
+  % 設定段落之間的距離
+%  \setlength{\parskip}{0.5cm}
+  %
+
+% ----------------------------------------------------------------------------
+
+% 	延伸baseline的高度
+\newcommand{\ValueDefaultLineStretch}{1.2} % Default
+\newcommand{\ValueCustomLineStretch}{1.2} % Default
+
+\newcommand{\ValueDefaultLineStretchTypeDefault}{0}
+\newcommand{\ValueDefaultLineStretchTypeCustom}{1}
+\newcommand{\VarDefaultLineStretchType}{%
+  \ValueDefaultLineStretchTypeDefault} % Default
+\newcommand{\GetDefaultLineStretchType}{%
+  \VarDefaultLineStretchType}
+\newcommand{\SetDefaultLineStretchType}[1]{\renewcommand{\VarDefaultLineStretchType}{#1}}
+
+% 公開的APIs
+\newcommand{\SetLineStretch}[1]%
+{%
+  \renewcommand{\ValueCustomLineStretch}{#1}%
+  \SetDefaultLineStretchType{\ValueDefaultLineStretchTypeCustom}%
+} % End of \newcommand{}
+
+\newcommand{\UseDefaultLineStretch}
+{%
+  \ifthenelse{\equal{\GetDefaultLineStretchType}{\ValueDefaultLineStretchTypeDefault}}%
+  {\setstretch{\ValueDefaultLineStretch}}{}%
+  %
+  \ifthenelse{\equal{\GetDefaultLineStretchType}{\ValueDefaultLineStretchTypeCustom}}%
+  {\setstretch{\ValueCustomLineStretch}}{}%
+} % End of \newcommand{}
+
+\UseDefaultLineStretch % Default
+
+% ----------------------------------------------------------------------------
+
+% 過去的API, 以 Error提醒不能再使用
+
+\newcommand{\ThesisWroteInChi}{\errmessage{模版: 由v1.4.4開始, ThesisWroteInChi已不能再使用. 請參考最新版的conf.tex使用方式.}\stop}
+
+% ----------------------------------------------------------------------------

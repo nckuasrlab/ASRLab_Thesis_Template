@@ -1,0 +1,215 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% ----------------------------------------------------------------------------
+
+\DeclareDocumentCommand{\SetTableCaptionAndLabel}{+m +m}
+{%
+  \ifthenelse{\equal{#1}{\empty}}{}%
+  {%
+    \ifthenelse{\equal{%
+      \GetStartExtendedAbstractFigureTableControl}{%
+      \ValueDisableExtendedAbstractFigureTableControl}}%
+      {\caption{#1}}{\caption[]{#1}}
+    \ifthenelse{\equal{#2}{\empty}}{}{\label{#2}}%
+  }%
+} % End of \DeclareDocumentCommand{}
+
+\DeclareDocumentCommand{\SetTableCaptionStarAndLabel}{+m +m}
+{%
+  \ifthenelse{\equal{#1}{\empty}}{}%
+  {%
+    \caption*{#1}%
+    \ifthenelse{\equal{#2}{\empty}}{}{\label{#2}}%
+  }%
+} % End of \DeclareDocumentCommand{}
+
+\newcommand{\DisplayTableContent}[5]
+{%
+  \begin{minipage}[c]{\textwidth}%
+  \begin{mdframed}[skipabove=0pt, skipbelow=0pt, leftmargin=0pt, rightmargin=0pt,
+    innerleftmargin=0pt, innerrightmargin=0pt, innertopmargin=0pt,
+    innerbottommargin=0pt, linewidth=0pt, apptotikzsetting={%
+    \tikzset{mdfbackground/.append style={opacity=#4}}}]%
+  \ifthenelse{\equal{#1}{0.0}}%
+  {%
+    \makebox[\textwidth]%
+    {%
+      \setlength{\tabcolsep}{#2}%
+      \renewcommand{\arraystretch}{#3}%
+      #5%
+    }%
+  }{%
+    \makebox[\textwidth]%
+    {%
+      \resizebox{#1\paperwidth}{!}%
+      {%
+        \setlength{\tabcolsep}{#2}%
+        \renewcommand{\arraystretch}{#3}%
+        #5%
+      }%
+    }%
+  }%
+  \end{mdframed}%
+  \end{minipage}%
+} % End of \newcommand{}
+
+\pgfkeys
+{
+  /InsertTable/.is family, /InsertTable,
+  default/.style =
+  {
+    scale = 0.0,
+    nomtitle = \empty, % For nomenclature
+    caption = \empty,
+    label = \empty,
+    pos = top, % Position of caption or nomtitle
+    tabcolsep = 6pt,
+    arraystretch = 1,
+    opacity = 0.4,
+  },
+  scale/.estore in = \TmpValueScale,
+  nomtitle/.estore in = \TmpValueNomTitle,
+  caption/.estore in = \TmpValueCaption,
+  label/.estore in = \TmpValueLabel,
+  pos/.estore in = \TmpValuePosition,
+  tabcolsep/.estore in = \TmpValueTabColSep,
+  arraystretch/.estore in = \TmpValueArrayStretch,
+  opacity/.estore in = \TmpValueOpacity,
+} % End of \pgfkeys{}
+
+\newcommand{\InsertTable}[2][\empty]
+{%
+  % Parse the input
+  \pgfkeys{/InsertTable, default, #1}%
+  %
+  \begin{table}[H]%
+  %
+    \ifthenelse{\equal{\TmpValuePosition}{top}}%
+    {%
+      \ifthenelse{\equal{\TmpValueNomTitle}{\empty}}%
+        {\SetTableCaptionAndLabel{\TmpValueCaption}{\TmpValueLabel}}%
+        {\SetTableCaptionStarAndLabel{\TmpValueNomTitle}{\TmpValueLabel}}%
+      \DisplayTableContent{%
+        \TmpValueScale}{\TmpValueTabColSep}{%
+        \TmpValueArrayStretch}{\TmpValueOpacity}{#2}%
+    }%
+    {%
+      \DisplayTableContent{%
+        \TmpValueScale}{\TmpValueTabColSep}{%
+        \TmpValueArrayStretch}{\TmpValueOpacity}{#2}%
+      \ifthenelse{\equal{\TmpValueNomTitle}{\empty}}%
+        {\SetTableCaptionAndLabel{\TmpValueCaption}{\TmpValueLabel}}%
+        {\SetTableCaptionStarAndLabel{\TmpValueNomTitle}{\TmpValueLabel}}%
+    }%
+  \end{table}%
+} % End of \newcommand{}
+
+% -----------------------------------------------------------------
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%\newcolumntype{LT}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\newcolumntype{LC}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{LB}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+
+%\newcolumntype{CT}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\newcolumntype{CC}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{CB}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+
+%\newcolumntype{RT}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\newcolumntype{RC}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{RB}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+
+% -----------------------------------------------------------------
+
+\def\ValueTableNameDefault{Table}
+\def\ValueTableNameCustom{Table} % Default
+\def\UseTableNameDefault{%
+  \renewcommand{\tablename}{\ValueTableNameDefault}}
+\def\UseTableNameCustom{%
+  \renewcommand{\tablename}{\ValueTableNameCustom}}
+\newcommand{\SetCustomTableName}[1]{%
+  \renewcommand{\ValueTableNameCustom}{#1}}
+
+\UseTableNameCustom % Default
+
+% -----------------------------------------------------------------
+\begin{comment}
+\def\ValueTableNameBoldOn{1}
+\def\ValueTableNameBoldOff{0}
+\def\VarTableNameBoldOption{\ValueTableNameBoldOn} %Default
+\def\GetTableNameBoldOption{\VarTableNameBoldOption}
+\newcommand{\EnableTableNameBold}{%
+  \renewcommand{\VarTableNameBoldOption}{\ValueTableNameBoldOn}}
+\newcommand{\DisableTableNameBold}{%
+  \renewcommand{\VarTableNameBoldOption}{\ValueTableNameBoldOff}}
+
+% ------------------------------------------
+
+\def\ValueTableTextBoldOn{3}
+\def\ValueTableTextBoldOff{2}
+\def\VarTableTextBoldOption{\ValueTableTextBoldOff} %Default
+\def\GetTableTextBoldOption{\VarTableTextBoldOption}
+\newcommand{\EnableTableTextBold}{%
+  \renewcommand{\VarTableTextBoldOption}{\ValueTableTextBoldOn}}
+\newcommand{\DisableTableTextBold}{%
+  \renewcommand{\VarTableTextBoldOption}{\ValueTableTextBoldOff}}
+\end{comment}
+% ------------------------------------------
+
+%\newcommand\TableCaptionFormatStyleLabel[1]{#1}
+%\newcommand\TableCaptionFormatStyleText[1]{\begin{bfseries}#1\end{bfseries}}
+%\begin{bfseries} Text to bold \end{bfseries}
+%\DeclareCaptionFormat{TableCaptionFormatStyle}{\TableCaptionFormatStyleLabel{#1#2}\TableCaptionFormatStyleText{#3}}
+
+% Default style
+\newcommand{\UseTableCaptionDefaultStyle}
+{%
+%  \ifthenelse{\equal{\GetTableNameBoldOption}{\ValueTableNameBoldOn}}
+%  {%
+%    \captionsetup[table]{labelfont=bf}
+%  }%
+%  {%
+%    \captionsetup[table]{labelfont=normalfont}
+%  }%
+  %
+%  \ifthenelse{\equal{\GetTableTextBoldOption}{\ValueTableTextBoldOn}}
+%  {%
+%    \captionsetup[table]{textfont=bf}%
+%  }%
+%  {%
+%    \captionsetup[table]{textfont=normalfont}%
+%  }%
+  \captionsetup[table]{labelfont=bf, textfont=normalfont}%
+} % End of \newcommand{}
+
+% Style for Extended Abstract
+\newcommand{\UseTableCaptionExtendedAbstractStyle}
+{%
+  \captionsetup[table]{font=bf}%
+  \renewcommand{\thetable}{\arabic{table}}%
+} % End of \newcommand{}
+
+\UseTableCaptionDefaultStyle % Default
+
+% -----------------------------------------------------------------

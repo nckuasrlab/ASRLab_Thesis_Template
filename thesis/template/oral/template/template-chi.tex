@@ -1,0 +1,124 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% ----------------------------------------------------------------------------
+% 學位考試論文證明書 (中文版) - Defense Certificate (Chinese version)
+% ----------------------------------------------------------------------------
+
+% ------------------------------------------------
+\StartOralTemplateDocChi
+% ------------------------------------------------
+
+% 顯示 校名, 論文種類
+\begin{minipage}[c][1.5cm][t]{\textwidth}
+  \begin{center}
+    \makebox[\textwidth][c]{\Huge \GetUniversityChiName}\\
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\Huge \GetChiDegree 論文}\\
+  \end{center}
+\end{minipage}
+
+% ------------------------------------------------
+
+\vspace{1.6cm}
+
+% ------------------------------------------------
+
+% Chinese and English title 中英文題目
+\begin{minipage}[c][2.5cm][t]{\textwidth}
+  \begin{center}
+%    \parbox{\paperwidth}{\center \Large \GetChiTitle}
+%    \parbox{\paperwidth}{\center \Large \GetEngTitle}
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \GetChiTitle}}\\
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large \GetEngTitle}}\\
+  \end{center}
+\end{minipage}
+
+% ------------------------------------------------
+
+\vspace{0.3cm}
+
+% ------------------------------------------------
+
+% 顯示 學生 的名字
+\begin{minipage}[c][1.5cm][t]{\textwidth}
+  \begin{center}
+    \hspace{2.4em}
+    \makebox[4.8em][r]{\Large 研究生：}
+    \makebox[7.2em][l]{\Large \GetAuthorChiName} \\
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\Large 本論文業經審查及口試合格特此證明}\\
+  \end{center}
+\end{minipage}
+
+% --------------------------
+
+\vspace{0.7cm}
+
+% --------------------------
+
+% 博士學位考試委員會置委員五人至九人
+% 碩士學位考試委員會置委員三人至五人
+% 口試委員人數含指導教授
+\begin{minipage}[c][9.0cm][t]{\textwidth}
+  \begin{center}
+    \makebox[\textwidth][l]{\Large 論文考試委員：} \\
+
+    \vspace{1.07cm}
+
+    \DisplayCommitteeSignatureArea
+  \end{center}
+\end{minipage}
+
+% ------------------------------------------------
+
+\vspace{1.5cm}
+
+% ------------------------------------------------
+
+\begin{minipage}[c][3.0cm][t]{\textwidth}
+  \begin{center}
+    \makebox[4.8em][r]{\Large 指導教授}
+    \makebox[1em][c]{\Large：}
+    \makebox[7.2em][l]{\namesigdate}\\
+
+    \vspace{1.0cm}
+
+    \makebox[4.8em][r]{\Large 系(所)主管}
+    \makebox[1em][c]{\Large：}
+    \makebox[7.2em][l]{\namesigdate}\\
+
+    \vspace{1.5cm}
+
+    % Date 日期
+    \makebox[\textwidth][s]{\Large 中華民國 \GetOralChiYear 年 \GetOralChiMonth 月 \GetOralChiDay 日}
+  \end{center}
+\end{minipage}
+
+% ------------------------------------------------
+\EndOralTemplateDoc
+% ------------------------------------------------

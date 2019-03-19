@@ -1,0 +1,742 @@
+% This file is need to encoded in utf-8
+%
+% Choose or fill in some needed information for this thesis or dissertation
+% 選擇或填入你的論文一些需要使用的資料
+
+% ----------------------------------------------------------------------------
+
+% --- 使用的論文內容 ---
+% 如果沒有打開\DemoMode
+% 就會使用'./context/context.tex'中你所編寫論文內容.
+% 否則會使用'./example/context.tex'的模版說明文件內容.
+
+\DemoMode
+
+% ----------------------------------------------------------------------------
+
+% --- 行距 ---
+% 同學可自行設定每行的距離, 這邊是以放大縮小方式來使用.
+% 所以是輸入 0.1, 0.5, 1, 1.0, 1.5, 2.0, 2 等數字.
+% 預設的行距: 1.2
+
+%\SetLineStretch{1.2}
+
+% ----------------------------------------------------------------------------
+
+% --- 封面上語言和名字顯示方式 ---
+%
+% \DisplayCoverInChi:  封面以全中文顯示
+% \DisplayCoverInEng:  封面以全英文顯示
+% 只能選擇其中一個, 但只有最後設定的一方有效
+% 預設使用\DisplayCoverInEng
+%
+% 另外預設在封面上只會顯示中文或英文名字而已.
+% 不論你是使用\DisplayCoverInChi或\DisplayCoverInEng,
+% 使用\DisplayCoverPeoplesBothNames以設定同時顯示中英文名字.
+
+%\DisplayCoverInChi
+\DisplayCoverInEng
+\DisplayCoverPeoplesBothNames
+
+% ----------------------------------------------------------------------------
+
+% --- Title 論文題目 ---
+% 填寫中文和(或)英文
+% 如果題目內有必須以數學模式表示的符號，請用 \mbox{} 包住數學模式
+% 如果覺得自動產生出來的題目斷行位置不適合, 可以手動加'\\'來強制斷行
+% (圖書館說不管你是編寫中英混合或全英文版, 都必須同時存在中英題目)
+%
+% 有3種可使用, 可獨立使用, 但只有最後設定的一方有效
+% \SetTitle{你的題目}{Your Title}   % 同時設定中英文題目
+% \SetChiTitle{你的題目}            % 只設定中文題目
+% \SetEngTitle{Your Title}         % 只設定英文題目
+%
+% e.g:
+%
+% \SetTitle %
+% {國立成功大學碩博士用畢業論文LaTex模版} %
+% {National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex}
+%
+% or
+%
+% \SetChiTitle{國立成功大學碩博士用畢業論文LaTex模版}
+% \SetEngTitle{National Cheng Kung University (NCKU) \\Thesis/Dissertation Template in LaTex}
+
+\SetTitle %
+{國立成功大學碩博士用畢業論文LaTex模版} %
+{National Cheng Kung University (NCKU) \\Thesis/Dissertation Template in LaTex}
+
+% ----------------------------------------------------------------------------
+
+% --- Draft 初稿 ---
+% 顯示 '(初稿)' (中文版) 和 '(Draft)' (英文版) 在封面
+\DisplayDraft
+
+% ----------------------------------------------------------------------------
+
+% --- Degree name 學位 ---
+%
+% 有2種可選擇, 但只有最後設定的一方有效
+% \PhdDegree    % 博士學位
+% \MasterDegree % 碩士學位
+
+\PhdDegree
+
+% ----------------------------------------------------------------------------
+
+% --- Your name 你的名字 ---
+% 填寫你的中文和(或)英文
+
+% 有3種可使用, 可獨立使用, 但只有最後設定的一方有效
+% \SetMyName{你的名字}{Your name}   % 同時設定你的中英文名字
+% \SetMyChiName{你的名字}           % 只設定你的中文名字
+% \SetMyEngName{Your name}         % 只設定你的英文名字
+
+\SetMyName{你的名字}{Your name}
+
+% ----------------------------------------------------------------------------
+
+% --- Date 日期 ---
+
+% 封面日期是統一使用學位考試合格(口試合格單)單為主要參考日期 (年、月(學位考試通過日期)).
+% 例如105年7月口試，則封面日期為 中華民國105年7月 或 2016年7月.
+
+% --- 口試的日期 ---
+% 設定西元的年月日, 會自動計算出民國的年份, 和英文的月份轉換
+% 次序: {年份}{月份}{日}
+% \SetOralDate{2016}{12}{31}
+
+\SetOralDate{2016}{12}{31}
+
+%--------------------------------------------------
+
+% --- 論文封面上的日期 ---
+
+% 如是你是國立成功大學的學生, 則封面日期直接使用口試日期, 故不需再另設定.
+% 但如果你不是國立成功大學的學生, 那本模版則不清楚 貴學校所定的規範是否要分開, 故先保留這功能.
+
+% 設定西元的年月, 會自動計算出民國的年份, 和英文的月份轉換
+% 次序: {年份}{月份}
+% \SetCoverDate{2016}{12}
+
+\SetCoverDate{2016}{12}
+
+% ----------------------------------------------------------------------------
+
+% --- 系所 Department or Institute ---
+%
+% 設定你的系所名字, e.g:
+% \SetDeptMath 數學系
+% \SetDeptCSIE 資訊工程學系
+
+\SetDeptCSIE
+
+% ----------------------------------------------------------------------------
+
+% --- 指導老師 Advisor(s) ---
+% 在封面上預算了最多3位的空間
+% 中文名字固定以 博士  為結尾
+% 英文名字固定以 Dr. 為開頭
+
+% 有3種可使用, 用來設定3位老師的名字
+% \SetAdvisorNameX{老師的名字}{Professor's name} % 同時設定中英文名字
+% \SetAdvisorChiNameX{老師的名字}                % 只設定中文名字
+% \SetAdvisorEngNameX{Professor's name}         % 只設定英文名字
+% (NameX為NameA, NameB, NameC)
+
+% 使用\SetAdvisorNameA是必須的, 而如果你的指導教授有2或3位,
+% 那只要增加\SetAdvisorNameB和\SetAdvisorNameC則可
+
+\SetAdvisorNameA{A}{A}
+\SetAdvisorNameB{B}{B}
+\SetAdvisorNameC{C}{C}
+
+% ----------------------------------------------------------------------------
+
+% --- 學位考試論文證明書 Defense Certificate ---
+% 使用範例版本 或 使用檔案 只能選擇其中一方
+
+% 使用範例版本
+\DisplayOralTemplate
+
+% --- 範例版本的語言 ---
+% 選擇你需要的範例
+% (Only work with \DisplayOralTemplate)
+% \DisplayOralChiTemplate    % 顯示中文範例版本
+% \DisplayOralEngTemplate    % 顯示英文範例版本
+
+\DisplayOralChiTemplate    % 顯示中文範例版本
+\DisplayOralEngTemplate    % 顯示英文範例版本
+
+% --- 口試委員 Committee member(s) ---
+% 口試委員數量 (至少2位, 最多9位, 預設為9位)
+% (Only work with \DisplayOralTemplate)
+% 博士學位考試委員會置委員五人至九人
+% 碩士學位考試委員會置委員三人至五人
+% 口試委員人數含指導教授
+\SetCommitteeSize{9}
+
+%--------------------------------------------------
+
+% 使用學位考試論文證明書圖片檔案
+% 把你的圖片放在'context/oral'下
+% 之後設定中英文版所對應是哪一個檔案
+% 就算已啟用\DisplayOralImage,
+% 但沒有填寫圖檔檔名的話, 都不會顯示出來.
+% (例子用的'example-oral-chi.pdf'和'example-oral-eng.pdf'已放在'context/oral'中)
+
+%\DisplayOralImage                % 顯示圖檔
+%\SetOralImageChi{example-oral-chi.pdf}   % 中文版檔案
+%\SetOralImageEng{example-oral-eng.pdf}   % 英文版檔案
+
+% ----------------------------------------------------------------------------
+
+% --- 關鍵字 Keyword ---
+% 最多9個關鍵字
+% 為了方便同學自行設定
+% 故所產出來的PDF檔案中的關鍵字和內文摘要的關鍵字
+% 可獨立個別設定
+
+% \SetKeywords是設定所產出來的PDF中的Keyword項目
+% 可同時填寫中英文
+% e.g
+% \SetKeywords{Keyword A (關鍵字 A)}{Keyword B (關鍵字 B)}{Keyword C (關鍵字 C)}
+% 或單純中文或英文
+% \SetKeywords{Keyword A}{Keyword B}{Keyword C}
+% \SetKeywords{關鍵字 A}{關鍵字 B}{關鍵字 C}
+
+\SetKeywords{NCKU Thesis/Dissertation template}{Graduate}{LaTex/XeLaTex}
+
+% 摘要中的關鍵字
+% 為了方便同學們能達到以下情況:
+% a. 只寫中文版摘要
+% b. 只寫英文版摘要
+% c. 同時寫中英文版摘要
+% 故中英文版的關鍵字都是可個別設定
+% \SetAbstractChiKeywords: 用來設定中文版摘要的關鍵字
+% \SetAbstractEngKeywords: 用來設定英文版摘要的關鍵字
+% \SetAbstractExtKeywords: 用來設定英文延伸摘要的關鍵字 (只有你要編寫英文延伸摘要才需要設定)
+% 所以只要使用你需要寫的版本則可.
+% 但如果2個版本都要寫, 則2個都同時使用則可.
+% 沒有填寫的話, 則摘要中的關鍵字部份是不會顯示出來.
+%
+% e.g
+% \SetAbstractChiKeywords{關鍵字 A}{關鍵字 B}{關鍵字 C}
+% \SetAbstractEngKeywords{Keyword A}{Keyword B}{Keyword C}
+% \SetAbstractExtKeywords{Keyword A}{Keyword B}{Keyword C}
+% 英文延伸摘要的關鍵字理應會跟英文版摘要的關鍵字是一樣,
+% 但為了同學能編寫不同內容和關鍵字, 故可獨立設定.
+
+\SetAbstractChiKeywords{國立成功大學畢業論文模版}{碩博士}{LaTex/XeLaTex}
+\SetAbstractEngKeywords{NCKU Thesis/Dissertation Template}{Graduate}{LaTex/XeLaTex}
+\SetAbstractExtKeywords{NCKU Thesis/Dissertation Template}{Graduate}{LaTex/XeLaTex}
+
+% ----------------------------------------------------------------------------
+
+% --- 目錄 Index ---
+% 設定可獨立使用, 但只有最後設定的一方有效
+
+% 標題文字語言 Language
+% 目錄的標題文字使用預設的中文或是英文
+% \IndexChiMode:  標題文字為中文
+% \IndexEngMode:  標題文字為英文
+% 預設的目錄標題為: 目錄 (中文) / Table of Contents (英文)
+% 預設的表格目錄標題為: 表格 (中文) / List of Tables (英文)
+% 預設的圖片目錄標題為: 圖片 (中文) / List of Figures (英文)
+% 預設使用\IndexEngMode
+
+%\IndexChiMode
+\IndexEngMode
+
+% ----------------------
+
+% 目錄標題文字 Text of title
+% 如果預設文字不是你所希望的, 那可以使用這邊去個別設定你所希望的文字, 不分中英文.
+
+% 設定目錄標題
+%\SetIndexTitleText{Table of Contents / 目錄}
+
+% 設定表格目錄標題
+%\SetTablesIndexTitleText{List of Tables / 表格}
+
+% 設定圖片目錄標題
+%\SetFiguresIndexTitleText{List of Figures / 圖片}
+
+% ----------------------------------------------------------------------------
+
+% --- 圖片相關的設定 ---
+% 預設上每一張圖的名字都是以 'Figure 2.1'
+% 假如想使用自定的名字, 如 '圖 2.1'
+% 則使用 \SetCustomFigureName{圖} 即可.
+
+%\SetCustomFigureName{Figure}
+
+% ----------------------------------------------------------------------------
+
+% --- 表格相關的設定 ---
+% 預設上每一張表的名字都是以 'Table 2.1'
+% 假如想使用自定的名字, 如 '表 2.1'
+% 則使用 \SetCustomTableName{表} 即可.
+
+%\SetCustomTableName{Table}
+
+% ----------------------------------------------------------------------------
+
+% --- 參考文獻 Reference ---
+%
+% --- 使用方式 ---
+%    \SetupReference{ < 設定 > }
+%
+% < 設定 >
+%    Title (Reference的標題文字)
+%    BibStyle (Reference引用時的格式)
+%
+% ----------------------
+%
+% < Title >
+% 模版提供了一些預設的文字
+%    \TextDefaultTitleReferenceChi: 參考文獻
+%    \TextDefaultTitleReferenceEng: References
+%    \TextDefaultTitleBibliographyEng: Bibliography
+%
+% 預設上是使用\TextDefaultTitleReferenceEng.
+%
+% 使用時:
+%    Title={\TextDefaultTitleBibliographyEng}
+%
+% 或自定你的文字:
+%    Title={我的參考文獻標題}
+%
+% ----------------------
+%
+% < BibStyle >
+% 除非有特殊的格式要求, 否則這部份是不用管的.
+%
+% 使用的格式 | 作者名稱顯示的格式 | 引用時顯示的例子
+%   abbrv | H. J. Simpson | [4]
+%   plain | Homer Jay Simpson | [4]
+%   alpha | Homer Jay Simpson | Sim95
+%   apacite | Homer J. S. | Homer, 1995
+%
+% 模版提供了:
+%   LaTex基本格式:
+%       abbrv, acm, alpha, apalike, ieeetr, plain, siam, unsrt
+%   可參考<https://www.sharelatex.com/learn/Bibtex_bibliography_styles>
+%
+%   額外的格式:
+%      apacite
+%   可參考<https://www.overleaf.com/latex/examples/package-example-apacite/jkssmfcpzwmy>
+%
+% 預設使用plain.
+%
+% 注意:
+%   如果你要轉換使用格式時, 推薦在重新產生論文前, 先把所有除了thesis.tex外的所有
+%   thesis開頭或以thesis為檔名的檔案全刪掉.
+%   例如'thesis.bbl', 'thesis.aux', 'thesis.lof'等所有檔案.
+%   否則有可能在產生論文時遇到錯誤, 如果遇到錯誤, 請不斷重新刪掉和重新產生論文,
+%   直到解決問題為止.
+%
+% 已知:
+%   由abbrv/plain轉去apacite必定需要刪除檔案才能進行.
+% ----------------------
+%
+% --- 請在這邊設定你要的樣子 ---
+%
+
+%\SetupReference{%
+%  Title = {\TextDefaultTitleReferenceEng},
+%  BibStyle = {plain},
+%} % End of \SetupReference{}
+
+% ----------------------------------------------------------------------------
+
+% --- 章節標題的設定 ---
+% 除非對章節標題格式有任何要求, 否則這部份內容是不用管的.
+%
+% 模版的章節有一個預設的格式:
+%
+% 一般章節:
+%    Chapter: Chapter 1
+%    Section: 1.1
+%    SubSection: 1.1.1
+%    SubSubSection: (空白, 只有題目)
+%
+% 附錄章節:
+%    Chapter: Appendix A
+%    Section: A.1
+%    SubSection: A.1.1
+%    SubSubSection: (空白, 只有題目)
+%
+% 如對格式有什麼的要求, 請使用\SetNumberingFormat.
+
+% --- 使用方式 ---
+%    \SetNumberingFormat[ < 章節類型 > ]{ < 設定 > }
+
+% ----------------------
+%
+% < 章節類型 >
+% 針對每一種的章節都可自設自己需要的格式,
+% 有8種類型提供, 包括一般章節和附錄章節.
+%    Chapter (章)
+%    Section (節)
+%    SubSection (小節)
+%    SubSubSection (小小節)
+%    AppendixChapter (附錄中的章)
+%    AppendixSection (附錄中的節)
+%    AppendixSubSection (附錄中的小節)
+%    AppendixSubSubSection (附錄中的小小節)
+%
+% ----------------------
+%
+% < 設定 >
+% 以下的設定針對標題中不同內容的設定.
+%    BeginText (章節號碼前面的文字)
+%    EndText (章節號碼後面的文字)
+%    TextAlign (標題文字的位置)
+%    CNumStyle ('章' 的數字類型)
+%    SNumStyle ('節' 的數字類型)
+%    SSNumStyle ('小節' 的數字類型)
+%    SSSNumStyle ('小小節' 的數字類型)
+%    SepAtIndex (目錄中章節號碼跟章節題目中的分隔符號)
+%    SepBetweenCnS ('章' 號碼跟 '節' 號碼中間的分隔符號)
+%    SepBetweenSnSS ('節' 號碼跟 '小節' 號碼中間的分隔符號)
+%    SepBetweenSSCnSSS ('小節' 號碼跟 '小小節' 號碼中間的分隔符號)
+%
+% 標題在不同位置使用的內容都不一樣:
+%
+% 內文:
+%   <BeginText> @NUMBER@ <EndText>
+%   例如: 第2章
+%
+%   @NUMBER@為第幾章節的那個數字
+%       <CNumStyle> <SepBetweenCnS>
+%         <SNumStyle> <SepBetweenSnSS>
+%           <SSNumStyle> <SepBetweenSSCnSSS> <SSSNumStyle>
+%   例如: 2.1, 3.1.2, A.2
+%
+% 目錄:
+%   <BeginText> @NUMBER@ <EndText> <SepAtIndex> @TITLE@
+%   例如: 第2章. 介紹
+%
+% 被引用時:
+%   @NUMBER@
+%   例如: 2.1, 3.1.2, A.2
+%
+% ----------------------
+%
+% 一個完整的 \SetNumberingFormat 的樣子:
+% \SetNumberingFormat[ < 章節類型 > ]{%
+%   BeginText = { @文字/符號@ }, EndText = { @文字/符號@ },%
+%   TextAlign = { @Left/Center/Right@ },%
+%   CNumStyle = { < 數字類型 > }, SNumStyle = { < 數字類型 > },%
+%   SSNumStyle = { < 數字類型 > }, SSSNumStyle = { < 數字類型 > },%
+%   SepAtIndex = { @文字/符號@ }, SepBetweenCnS = { @文字/符號@ },%
+%   SepBetweenSnSS = { @文字/符號@ }, SepBetweenSSCnSSS = { @文字/符號@ },%
+% } % End of \SetNumberingFormat{}
+%
+% ----------------------
+%
+% --- 數字類型 ---
+%
+% 模版提供以下的數字類型使用
+%    ChiNum (使用 '中文數字' 方式, 如: 一二三)
+%    Tiangan 使用 '天干' 方式, 如: 甲乙丙丁戊癸)
+%    Arabic (使用 '阿拉伯數字' 方式, 如: 1 2 3 4 5 6)
+%    LowerRoman (使用 '小寫羅馬數字' 方式, 如: i ii iii vi x)
+%    UpperRoman (使用 '大寫羅馬數字' 方式, 如: I II III VI X)
+%    LowerAlph (使用 '小寫英文字母' 方式, 如: a b c)
+%    UpperAlph (使用 '大寫英文字母' 方式, 如: A B C)
+%
+% 選擇你想要的數字類型後, 在<設定>中的這些位置填寫你要的類型
+%    CNumStyle
+%    SNumStyle
+%    SSNumStyle
+%    SSSNumStyle
+%
+%   例如: CNumStyle={Arabic}
+%
+% ----------------------
+%
+% --- 標題文字位置 ---
+%
+% 模版提供以下的位置使用
+%   Left: 左邊
+%   Center: 置中
+%   Right: 右邊
+% 預設上所有章節都是Left.
+%
+% 例如: TextAlign={Center}
+%
+% ----------------------
+%
+% --- 例子 ---
+%
+% 如果 '章' 要由文字改使用為:
+%        'Chapter 1' -> '第1章'
+% 則使用
+%   \SetNumberingFormat[Chapter]{%
+%     BeginText = {第}, EndText = {章}%
+%   }%
+%
+% -----------
+%
+% 如果 '附錄的章' 要由文字改使用為:
+%        'Appendix A' -> '附錄 A'
+% 則使用
+%   \SetNumberingFormat[AppendixChapter]{%
+%     BeginText = {附錄 }%
+%   }%
+%
+% -----------
+%
+% 如果 '章' 要由數字改使用為:
+%        'Chapter 1' -> 'Chapter -A-'
+% 則使用
+%   \SetNumberingFormat[Chapter]{%
+%     BeginText = {Chapter -}, EndText = {-},%
+%     CNumStyle = {UpperAlph},%
+%    }%
+%
+% -----------
+%
+% 如果 '節' 要由數字改使用為:
+%        '1.2' -> '一 -乙-'
+% 則使用
+%   \SetNumberingFormat[Section]{%
+%     EndText = {-},%
+%     CNumStyle = {ChiNum}, SNumStyle = {Tiangan},%
+%     SepBetweenCnS = { -},%
+%    }%
+%
+% -----------
+%
+% 如果 '節' 不想看到 '章' 的數字:
+%        '1.2' -> '(2)'
+% 則使用
+%   \SetNumberingFormat[Section]{%
+%     BeginText = {(}, EndText = {)},%
+%     CNumStyle = {}, SNumStyle = {Arabic},%
+%     SepBetweenCnS = {},%
+%    }%
+% 不提供 '章' 的數字類型跟中間的分隔符號
+%
+% ----------------------
+%
+% 目錄中章節號碼跟章節題目中的分隔符號
+% 正常在目錄中會顯示 'Chapter 1. ABCDEF' 或 '第一章. ABCDEF'
+% 但因個人喜好, 做法不一樣, 如 'Chapter 1: ABCDEF' 或 '第一章 ABCDEF'
+% 故使用 SepAtIndex 可設定你想要的符號或不需要符號
+%
+% 如想換'章'的由'Chapter 1. ABCDEF'換成'Chapter 1: ABCDEF'
+% 則使用
+%   \SetNumberingFormat[Chapter]{%
+%     SepAtIndex = {:},%
+%    }%
+%
+% 如想換'章'的由'第一章. ABCDEF'換成'第一章 ABCDEF'
+%   \SetNumberingFormat[Chapter]{%
+%     BeginText = {第}, EndText = {章},%
+%     CNumStyle = {ChiNum},%
+%     SepAtIndex = {},%
+%   }%
+% ----------------------
+%
+% --- 請在這邊設定你要的樣子 ---
+%
+
+% Chapter (章)
+%\SetNumberingFormat[Chapter]{%
+%  BeginText = {Chapter }, EndText = {},
+%  CNumStyle = {Arabic},
+%  SepAtIndex = {.},
+%} % End of \SetNumberingFormat{}
+
+% Section (節)
+\SetNumberingFormat[Section]{%
+  BeginText = {}, EndText = {},
+  TextAlign = {Left},
+  CNumStyle = {}, SNumStyle = {},
+  SepAtIndex = {}, SepBetweenCnS = {},
+} % End of \SetNumberingFormat{}
+
+% SubSection (小節)
+\SetNumberingFormat[SubSection]{%
+  BeginText = {}, EndText = {},
+  TextAlign = {Left},
+  CNumStyle = {}, SNumStyle = {}, SSNumStyle = {},
+  SepAtIndex = {.}, SepBetweenCnS = {}, SepBetweenSnSS = {},
+} % End of \SetNumberingFormat{}
+
+% SubSubSection (小小節)
+%\SetNumberingFormat[SubSubSection]{%
+%  BeginText = {}, EndText = {},
+%  TextAlign = {Left},
+%  CNumStyle = {}, SNumStyle = {}, SSNumStyle = {}, SSSNumStyle = {},
+%  SepAtIndex = {}, SepBetweenCnS = {},
+%  SepBetweenSnSS = {}, SepBetweenSSCnSSS = {},
+%} % End of \SetNumberingFormat{}
+
+% AppendixChapter (附錄中的章)
+%\SetNumberingFormat[AppendixChapter]{%
+%  BeginText = {Appendix }, EndText = {},
+%  CNumStyle = {UpperAlph},
+%  SepAtIndex = {.},
+%} % End of \SetNumberingFormat{}
+
+% AppendixSection (附錄中的節)
+%\SetNumberingFormat[AppendixSection]{%
+%  BeginText = {}, EndText = {},
+%  TextAlign = {Left},
+%  CNumStyle = {UpperAlph}, SNumStyle = {Arabic},
+%  SepAtIndex = {.}, SepBetweenCnS = {.},
+%} % End of \SetNumberingFormat{}
+
+% AppendixSubSection (附錄中的小節)
+%\SetNumberingFormat[AppendixSubSection]{%
+%  BeginText = {}, EndText = {},
+%  TextAlign = {Left},
+%  CNumStyle = {UpperAlph}, SNumStyle = {Arabic}, SSNumStyle = {Arabic},
+%  SepAtIndex = {.}, SepBetweenCnS = {.}, SepBetweenSnSS = {.},
+%} % End of \SetNumberingFormat{}
+
+% AppendixSubSubSection (附錄中的小小節)
+%\SetNumberingFormat[AppendixSubSubSection]{%
+%  BeginText = {}, EndText = {},
+%  TextAlign = {Left},
+%  CNumStyle = {}, SNumStyle = {}, SSNumStyle = {}, SSSNumStyle = {},
+%  SepAtIndex = {}, SepBetweenCnS = {},
+%  SepBetweenSnSS = {}, SepBetweenSSCnSSS = {},
+%} % End of \SetNumberingFormat{}
+
+% ----------------------------------------------------------------------------
+
+% --- Theorems的設定 ---
+% 除非對Theorems格式有任何要求, 否則這部份內容是不用管的.
+%
+% 提供以下的Theorems的使用:
+%
+%    Definition       (定義)
+%    Condition        (條件)
+%    Theorem          (定理)
+%    Lemma            (引理)
+%    Example          (例子)
+%    Corollary        (推論)
+%    Proposition      (主張)
+%    Proof            (證明)
+%    Conjecture       (猜想)
+%    Note             (附註)
+%    Annotation       (註解)
+%    Claim            (主張)
+%    Case             (情況)
+%    Acknowledgment   (確認)
+%    Conclusion       (結論)
+%    Criterion        (標準)
+%    Assertion        (斷言)
+%    Problem          (問題)
+%    Question         (問題)
+%    Hypothesis       (假設)
+%    Summary          (總結)
+%
+% 如對格式有什麼的要求, 請使用\SetNumberingFormat.
+% 而插入新內容的話則使用\InsertXXXX.
+%
+% --- 使用方式 ---
+%   \SetTheoremFormat[ < Theorem類型 > ]{ < 設定 > }
+%     和
+%   \InsertXXXX[ < 設定 > ]{ < 內容 >} (XXXX為Theorem類型), 如
+%     \InsertTheorem{ abc }
+%     \InsertLemma{ abc }
+%     \InsertProof{ abc }
+%
+% ----------------------
+%
+% 一個完整的 \SetTheoremFormat 的樣子:
+%
+% \SetTheoremFormat[ < Theorem類型 > ]{%
+%   ShowText = { @文字/符號@ },
+%   FollowCounter = { < Counter類型 > },%
+% } % End of \SetTheoremFormat{}
+%
+% ----------------------
+%
+% --- ShowText ---
+%
+% ShowText是指所顯示在文章中的文字. 如Proof可修改成:
+%    ShowText = {證明}
+%
+% ----------------------
+%
+% --- Counter類型 ---
+%
+% 模版提供以下的Counter類型使用:
+%
+%    Section
+%    Definition
+%    Condition
+%    Theorem
+%    Lemma
+%    Example
+%    Corollary
+%    Proposition
+%    Proof
+%    Conjecture
+%    Note
+%    Annotation
+%    Claim
+%    Case
+%    Acknowledgment
+%    Conclusion
+%    Criterion
+%    Assertion
+%    Problem
+%    Question
+%    Hypothesis
+%    Summary
+%
+%  有一些Theorem是不需要Counter, 故那些是不會需要這設定. 如Proof/Note.
+%  而需要的則全預設跟隨Section Counter.
+%
+%  以下為預設使用Counter的清單:
+%
+%    Definition
+%    Condition
+%    Theorem
+%    Lemma
+%    Example
+%    Corollary
+%    Proposition
+%    Conjecture
+%    Criterion
+%    Assertion
+%    Problem
+%    Question
+%    Hypothesis
+%
+% ----------------------
+%
+% --- 請在這邊設定你要的樣子 ---
+%
+
+%\SetTheoremFormat[Definition]{ShowText = {Definition}}%
+%\SetTheoremFormat[Condition]{ShowText = {Condition}}%
+%\SetTheoremFormat[Problem]{ShowText = {Problem}}%
+%\SetTheoremFormat[Example]{ShowText = {Example}}%
+%\SetTheoremFormat[Theorem]{ShowText = {Theorem}}%
+%\SetTheoremFormat[Lemma]{ShowText = {Lemma}}%
+%\SetTheoremFormat[Corollary]{ShowText = {Corollary}}%
+%\SetTheoremFormat[Proposition]{ShowText = {Proposition}}%
+%\SetTheoremFormat[Conjecture]{ShowText = {Conjecture}}%
+%\SetTheoremFormat[Proof]{ShowText = {Proof}}%
+%\SetTheoremFormat[Note]{ShowText = {Note}}%
+%\SetTheoremFormat[Annotation]{ShowText = {Annotation}}%
+%\SetTheoremFormat[Claim]{ShowText = {Claim}}%
+%\SetTheoremFormat[Case]{ShowText = {Case}}%
+%\SetTheoremFormat[Acknowledgment]{ShowText = {Acknowledgment}}%
+%\SetTheoremFormat[Conclusion]{ShowText = {Conclusion}}%
+%\SetTheoremFormat[Criterion]{ShowText = {Criterion}}%
+%\SetTheoremFormat[Assertion]{ShowText = {Assertion}}%
+%\SetTheoremFormat[Question]{ShowText = {Question}}%
+%\SetTheoremFormat[Hypothesis]{ShowText = {Hypothesis}}%
+%\SetTheoremFormat[Summary]{ShowText = {Summary}}%
+
+% ----------------------------------------------------------------------------

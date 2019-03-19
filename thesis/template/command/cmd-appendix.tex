@@ -1,0 +1,87 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% Some helper function about appendix
+
+% ----------------------------------------------------------------------------
+
+\newcounter{appendixchapter}
+\newcounter{appendixsection}
+\newcounter{appendixsubsection}
+\newcounter{appendixsubsubsection}
+
+% ----------------------------------------------------------------------------
+
+%\def\VarAppendixTitleFormatPrefix{Appendix}
+%\def\VarAppendixTitleFormatSuffix{}
+
+%\newcommand{\VarAppendixTitleFormatFinalString}{}%
+%\newcommand{\InitAppendixTitleFormatFinalString}{%
+%  \renewcommand{\VarAppendixTitleFormatFinalString}{}}%
+
+%\makeatletter
+%\newcommand{\AppendAppendixTitleFormatFinalString}[1]%
+%{%
+%  \g@addto@macro\VarAppendixTitleFormatFinalString{#1}%
+%} % End of \newcommand{}
+%\makeatother
+
+%\newcommand{\SetAppendixTitleFormatFinalString}%
+%{%
+%  \InitAppendixTitleFormatFinalString%
+%  \AppendAppendixTitleFormatFinalString{\thechapter}%
+%  \ifthenelse{\equal{\VarAppendixTitleFormatPrefix}{\empty}}%
+%  {}{\AppendAppendixTitleFormatFinalString{\VarAppendixTitleFormatPrefix\space}}%
+%  \AppendAppendixTitleFormatFinalString{\theappendixchapter}%
+%  \ifthenelse{\equal{\VarAppendixTitleFormatSuffix}{\empty}}%
+%  {}{\AppendAppendixTitleFormatFinalString{\space\VarAppendixTitleFormatSuffix}}%
+%} % End of \newcommand{}
+
+%\newcommand{\GetAppendixTitleFormatFinalString}{%
+%  \VarAppendixTitleFormatFinalString}
+
+% ----------------------------------------------------------------------------
+
+%\def\VarAppendixTitleEng{Appendix}
+%\def\VarAppendixTitleChi{附錄}
+%\def\GetAppendixTitle{\VarAppendixTitleEng}
+
+\def\ValueEnableAppendixChapter{1}
+\def\ValueDisableAppendixChapter{0}
+\def\VarStartAppendixChapter{\ValueDisableAppendixChapter}
+\def\BeginAppendixChapter{%
+  \renewcommand{\VarStartAppendixChapter}{\ValueEnableAppendixChapter}}
+\def\GetStartAppendixChapter{\VarStartAppendixChapter}
+
+% ----------------------------------------------------------------------------
+
+\newcommand{\StartAppendix}
+{%
+  \BeginAppendixChapter%
+  %
+  % Set numbering format style
+  \SetupAppendixNumberingFormat%
+  %
+  \StartNewPage%
+} % End of \newcommand{}
+
+\newcommand{\EndAppendix}{\EndChapter}
+
+% ----------------------------------------------------------------------------

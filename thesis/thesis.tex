@@ -1,0 +1,348 @@
+% ------------------------------------------------
+% 常見論文內容次序:
+% 1.口試合格證明(初稿不需要)
+% 2.中英文摘要(論文以中文撰寫者須附英文延伸摘要)
+% 3.誌謝(初稿不需要)
+% 4.目錄
+% 5.表目錄
+% 6.圖目錄
+% 7.符號
+% 8.主文
+% 9.參考文獻
+% 10.附錄
+%
+% 註: 參考文獻書寫注意事項:
+% (1).
+%    文學院之中文文獻依分類及年代順序排列。
+%    其他學院所之文獻依英文姓氏第一個字母
+%    (或中文姓氏第一個字筆劃)及年代順序排列。
+% (2).
+%    期刊文獻之書寫依序為:
+%        姓名、文章名稱、期刊名、卷別、期別、頁別、年代。
+% (3).
+%    書寫之文獻依序為:
+%        姓名、書名、出版商名、出版地、頁別、年代。
+% ------------------------------------------------
+
+% ------------------------------------------------
+%          載入基本設定 Basic configuration
+% ------------------------------------------------
+% Don't need to modify this section.
+\input{template/configure}
+\begin{document}
+
+% ------------------------------------------------
+%                封面內頁 Inner Cover
+% ------------------------------------------------
+\singlespacing 
+\newpage
+\phantomsection
+\thispagestyle{empty}
+\newgeometry{top=2.3cm,bottom=3cm,left=2cm,right=2cm,nohead,nofoot}
+  
+\begin{center}
+
+\begin{minipage}[c][5cm][t]{\textwidth}
+  \begin{center}
+    \makebox[10cm][s]{\Huge 國立成功大學}\vspace{1cm}		\\
+    \makebox[8cm][s]{\Huge 資訊工程研究所}\vspace{1cm}		\\
+    \makebox[5cm][s]{\Huge 碩士論文}\vspace{1cm}			\\
+    \makebox[5cm][c]{\Huge (初稿)}
+  \end{center}
+\end{minipage}
+
+\vspace{5.5cm}
+
+\begin{minipage}[c][5cm][t]{\textwidth}
+  \begin{center}
+    \makebox[\textwidth][c]{\parbox{\paperwidth}
+    {\center \Large 國立成功大學碩博士畢業論文\\LaTex模板}}
+    \vspace{0.5cm}\\
+    \makebox[\textwidth][c]{\parbox{\paperwidth}
+    {\center \Large National Cheng Kung University (NCKU)\\Thesis/Dissertation Template in LaTex}}
+  \end{center}
+\end{minipage}
+
+\vspace{1.0cm}
+
+\begin{minipage}[c][4.5cm][t]{\textwidth}
+  \begin{center}
+    {
+      % -------------Student-------------
+      \hspace{2.0em}
+      \makebox[4.0em][r]{\Large 學生：}
+      \makebox[6.0em][l]{\Large 你的名字}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{\Large Student：}
+      \makebox[8.0em][l]{\Large Your Name}
+      \vspace{0.5cm}\\
+      % -------------Advisor-------------
+      \hspace{2.0em}
+      \makebox[4.0em][r]{\Large 指導老師：}
+      \makebox[6.0em][l]{\Large A博士}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{\Large Advisor：}
+      \makebox[8.0em][l]{\Large Dr. A}
+      \vspace{0.1cm}\\
+      % -------------Co-Advisor-1-------------
+      \hspace{2.0em}
+      \makebox[4.0em][r]{\Large 共同指導：}
+      \makebox[6.0em][l]{\Large B博士}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{\Large Co-Advisor：}
+      \makebox[8.0em][l]{\Large Dr. B}
+      \vspace{0.1cm}\\
+      % -------------Co-Advisor-2-------------
+      \hspace{1.7em}
+      \makebox[4.0em][r]{}
+      \makebox[6.0em][l]{\Large C博士}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{}
+      \makebox[8.0em][l]{\Large Dr. C}
+      \\
+    }
+  \end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\makebox[8cm][s]{\Large 中華民國105年12月}
+
+\end{center}
+\restoregeometry
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%  學位考試論文證明書 Defense Certificate (初稿不需要)
+% ------------------------------------------------
+\newpage
+\phantomsection
+\thispagestyle{empty}
+\includepdf[pages=-]{context/oral/oral_example.pdf}
+\clearpage
+
+% ------------------------------------------------
+%                  摘要 Abstract
+% ------------------------------------------------
+% 除了外籍生, 本地生和僑生都要同時編寫中文和英文摘要
+% 論文以中文撰寫須以英文補寫 800 至 1200 字數的英文延伸摘要 (Extended Abstract)
+% 詳細可看附件的學校要求或看example中的英文延伸摘要
+
+% -------------中文摘要-------------
+\setcounter{page}{1}
+\pagenumbering{roman}
+\newpage
+\phantomsection
+\chapter*{摘要}
+\pagestyle{plain}
+
+除了外籍生, 本地生和僑生都是要編寫中文和英文摘要. 論文以中文撰寫須以英文補寫 800 至 1200 字數的英文延伸摘要 (Extended Abstract), 如需要的話請修改`./context/abstract/extended.tex'.
+
+外籍生則可免填中文摘要, 而在上傳時網頁資訊需填上`NONE'.
+
+\par{\noindent \bf 關鍵字:}{關鍵字1, 關鍵字2, 關鍵字3, 關鍵字4}
+\clearpage
+\setstretch{1.2}
+
+% -------------English Abstract-------------
+\newpage
+\phantomsection
+\chapter*{Abstract}
+\pagestyle{plain}
+
+Write your abstract here.
+
+\par{\noindent \bf Keyword:}{ Keyword1, Keyword2, Keyword3, Keyword4}
+\clearpage
+\setstretch{1.2}
+
+
+% ------------------------------------------------
+%           誌謝 Acknowledgments(初稿不需要)
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter*{誌謝}
+\pagestyle{plain}
+
+在這邊寫你的感謝 (對父母, 老師, 同學, 朋友等的感謝).
+
+\clearpage
+\setstretch{1.2}
+
+
+% ------------------------------------------------
+%              目錄 Index of contents
+% ------------------------------------------------
+% 目錄有三種，分為內容、表格及圖片索引
+
+% -------------內容索引-------------
+\renewcommand*\contentsname{Table of Contents}
+\singlespacing
+\newpage
+\phantomsection
+\pagestyle{plain}
+\tableofcontents
+\clearpage
+\setstretch{1.2}
+
+% -------------表格索引-------------
+\listoftables
+% -------------圖片索引-------------
+\listoffigures
+
+% ------------------------------------------------
+%              Nomenclature(optional)
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter*{Nomenclature}
+\pagestyle{plain}
+
+\begin{center}
+  \begin{tabular}{C{0.2\textwidth} C{0.4\textwidth}}
+    \hline
+    \underline{Symbol} & \centerline{\underline{Description}} \\
+    $\alpha$	&	Symbol of alpha 	\\
+    $\beta$		&	Beta				\\
+    $\gamma$	&	Gamma				\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\EmptyLine
+
+\begin{center}
+  \begin{tabular}{C{0.2\textwidth} C{0.4\textwidth} C{0.35\textwidth}}
+    \hline
+    \underline{Symbol} & \underline{Meaning} & \underline{SI unit of measure}	\\
+    $g$		&	Standard gravity	&	$9.80665 m/s^2$							\\
+    $c$		&	Speed of light		&	$\approx3.00\times108 m/s$				\\
+    $l$		&	Length				&	meter (m)								\\
+ 	\hline
+  \end{tabular}
+  \vspace{0.1cm}\\{List of common physics notations}
+\end{center}
+\clearpage
+\setstretch{1.2}
+
+
+% ------------------------------------------------
+%                   Introduction
+% ------------------------------------------------
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\newpage
+\phantomsection
+\chapter{Introduction}
+\pagestyle{plain}
+
+Write your introduction here.
+
+\clearpage
+\setstretch{1.2}
+
+
+% ------------------------------------------------
+%                    Objective
+% ------------------------------------------------
+% The objective of the paper is the reason given for writing the paper.
+
+\newpage
+\phantomsection
+\chapter{Objective}
+\pagestyle{plain}
+
+Write your objective here.
+
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%                  Related Work
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter{Related Work}
+\pagestyle{plain}
+
+Write your relatd work here.
+
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%                   Conclusion
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter{Conclusion}
+\pagestyle{plain}
+
+Write your conclusion here.
+
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%                  \Cite Example
+% ------------------------------------------------
+\newpage
+\phantomsection
+\chapter{Cite Example}
+\pagestyle{plain}
+
+This chapter shows how to use $\backslash$cite command. The $\backslash$cite command read the \textbf{.bib file} to find the references.
+
+\begin{enumerate}
+  \item{point 1 \cite{test1}}
+  \item{point 2 \cite{test2}}
+    \begin{enumerate}
+      \item{point 2-1 \cite{test3}}
+      \item{point 2-2}
+    \end{enumerate}
+  \item{point 3 \cite{test4}}
+\end{enumerate}
+
+
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%               參考文獻 References
+% ------------------------------------------------
+% References and bibliography
+
+% Import the files that contain your references.
+% If you set some references file,
+% you need to use at least one cite to make Latex work.
+\singlespacing
+\newpage
+\phantomsection
+\renewcommand\bibname{References}	% references title
+
+\bibliographystyle{ieeetr}			% reference style
+\bibliography{thesis}				% target .bib file
+
+\clearpage
+\setstretch{1.2}
+
+% ------------------------------------------------
+%                   附錄 Appendix
+% ------------------------------------------------
+\BeginAppendixChapter				% User-defined function
+\SetupAppendixNumberingFormat		% User-defined function
+\newpage
+\phantomsection
+\chapter{Title of Appendix A}
+
+Write your Appendix here.
+
+  \section{Dolor sit amet}
+    Appendix
+
+\clearpage
+\setstretch{1.2}
+
+\end{document}

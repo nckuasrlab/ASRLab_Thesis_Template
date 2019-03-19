@@ -1,0 +1,345 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% Some helper function use in cover
+
+% ----------------------------------------------------------------------------
+\newcommand{\StartCover}
+{
+  %
+  \singlespacing%
+  %
+  \StartNewPage
+  %
+  % 設定使用 無頁碼
+  \thispagestyle{empty}
+  %
+  \EnableCoverPageStyle
+  %
+  % Aligned to the center of the page
+  \begin{center}
+} % End of \newcommand{}
+
+\newcommand{\EndCover}
+{
+  % End of alignment
+  \end{center}
+  \DisableCoverPageStyle
+  \EndOfPage
+  \UseDefaultLineStretch
+} % End of \newcommand{}
+% ----------------------------------------------------------------------------
+
+% --- University name 學校名字 ---
+\newcommand\VarUniversityChiName{國立成功大學}           % Default
+\newcommand\VarUniversityEngName{National Cheng Kung University} % Default
+
+\newcommand{\SetUniversityChiName}[1]{%
+  \renewcommand{\VarUniversityChiName}{#1}%
+} % End of \newcommand{}
+
+\newcommand{\SetUniversityEngName}[1]{%
+  \renewcommand{\VarUniversityEngName}{#1}%
+} % End of \newcommand{}
+
+\newcommand{\SetUniversityName}[2]
+{%
+  \SetUniversityChiName{#1}%
+  \SetUniversityEngName{#2}%
+} % End of \newcommand{}
+
+\newcommand{\GetUniversityChiName}{\VarUniversityChiName}
+\newcommand{\GetUniversityEngName}{\VarUniversityEngName}
+% ----------------------------------------------------------------------------
+
+% --- Chinese / English title 中英文論文題目 ---
+\newcommand{\VarThesisChiName}{Chinese Title Here} % Default
+\newcommand{\VarThesisEngName}{English Title Here} % Default
+\newcommand{\SetChiTitle}[1]{\renewcommand{\VarThesisChiName}{#1}}
+\newcommand{\SetEngTitle}[1]{\renewcommand{\VarThesisEngName}{#1}}
+\newcommand{\SetTitle}[2]
+{
+  \SetChiTitle{#1}
+  \SetEngTitle{#2}
+} % End of \newcommand{}
+
+\newcommand{\GetChiTitle}{\VarThesisChiName}
+\newcommand{\GetEngTitle}{\VarThesisEngName}
+
+% ----------------------------------------------------------------------------
+
+% --- User's name 使用者名字 ---
+\newcommand{\VarMyChiName}{你的名字}     % Default
+\newcommand{\VarMyEngName}{Your name}   % Default
+\newcommand{\SetMyChiName}[1]{\renewcommand{\VarMyChiName}{#1}}
+\newcommand{\SetMyEngName}[1]{\renewcommand{\VarMyEngName}{#1}}
+\newcommand{\SetMyName}[2]
+{
+  \SetMyChiName{#1}
+  \SetMyEngName{#2}
+} % End of \newcommand{}
+
+\newcommand{\GetAuthorChiName}{\VarMyChiName}
+\newcommand{\GetAuthorEngName}{\VarMyEngName}
+
+% ----------------------------------------------------------------------------
+
+% --- Degree name 學位 ---
+% thesis 是指論文的通稱
+% dissertation 指的是博士的論文
+
+% 碩士論文  Master's thesis
+% 博士論文  Doctoral dissertation
+
+\newcommand{\ValueDegreeMaster}{0}
+\newcommand{\ValueDegreePhd}{1}
+\newcommand{\FlagDegreeType}{\ValueDegreePhd} % Default
+\newcommand{\GetFlagDegreeType}{\FlagDegreeType}
+\newcommand{\SetFlagDegreeType}[1]{\renewcommand{\FlagDegreeType}{#1}}
+
+\newcommand{\VarDegreeChiName}{碩士/博士} % Default
+\newcommand{\VarDegreeEngName}{Master / Doctor} % Default
+\newcommand{\degreeThesisEname}{Master's Thesis / Doctoral Dissertation} % Default
+
+\newcommand{\GetChiDegree}{\VarDegreeChiName}
+\newcommand{\GetEngDegree}{\VarDegreeEngName}
+\newcommand{\GetEngDegreeThesis}{\degreeThesisEname}
+\newcommand{\SetChiDegree}[1]{\renewcommand{\VarDegreeChiName}{#1}}
+\newcommand{\SetEngDegree}[1]{\renewcommand{\VarDegreeEngName}{#1}}
+\newcommand{\SetEngDegreeThesis}[1]{\renewcommand{\degreeThesisEname}{#1}}
+
+\newcommand{\PhdDegree}
+{
+  \SetFlagDegreeType{\ValueDegreePhd}
+  \SetChiDegree{博士}
+  \SetEngDegree{Doctor}
+  \SetEngDegreeThesis{Doctoral Dissertation}
+} % End of \newcommand{}
+
+\newcommand{\MasterDegree}
+{
+  \SetFlagDegreeType{\ValueDegreeMaster}
+  \SetChiDegree{碩士}
+  \SetEngDegree{Master}
+  \SetEngDegreeThesis{Master's Thesis}
+} % End of \newcommand{}
+
+% ----------------------------------------------------------------------------
+
+% --- Date 日期 ---
+
+% \CoverDateNumInChi: 日期使用中文數字,
+% 而不是阿拉伯數字,
+% 故使用'\CoverDateNumInChi'可以顯示
+% '第一章' 而不是 '中華民國 103 年 12 月 31 日'.
+% \CoverDateNumInChi必須配合\DisplayCoverInChi來使用, 否則會無效.
+%\CoverDateNumInChi
+
+% --- 論文的日期 ---
+\newcommand{\ThesisYear}{2014}  % Default
+\newcommand{\ThesisMonth}{1}    % Default
+
+\newcommand{\SetThesisDate}[2]{\SetThesisDate{#1}{#2}} % For backporting
+\newcommand{\SetCoverDate}[2]
+{
+  \SetThesisTaiwanYear{#1}
+  \renewcommand{\ThesisYear}{#1}
+  \renewcommand{\ThesisMonth}{#2}
+} % End of \newcommand{}
+
+\newcommand{\GetThesisYear}{\ThesisYear}
+\newcommand{\GetThesisYearInTaiwanYear}{\ThesisTaiwanYearResult}
+\newcommand{\GetThesisMonth}{\ThesisMonth}
+\newcommand{\GetThesisMonthNumInChi}{\zhnumber{\ThesisMonth}}
+\newcommand{\GetThesisMonthInEng}{\GetMonthInEng{\ThesisMonth}}
+
+% ---  口試的日期 ---
+\newcommand{\OralChiYear}{101}      % Default
+\newcommand{\OralChiMonth}{1}       % Default
+\newcommand{\OralChiDay}{1}         % Default
+\newcommand{\OralEngYear}{2014}     % Default
+\newcommand{\OralEngMonth}{January} % Default
+\newcommand{\OralEngDay}{1}         % Default
+
+\newcommand{\GetOralChiYear}{\OralChiYear}
+\newcommand{\GetOralYearInTaiwanYear}
+{\SetThesisTaiwanYear{\OralEngYear}\ThesisTaiwanYearResult}
+\newcommand{\GetOralYearInTaiwanYearNumInChi}
+{\SetThesisTaiwanYear{\OralEngYear}\zhdigits{\ThesisTaiwanYearResult}}
+\newcommand{\GetOralChiMonth}{\OralChiMonth}
+\newcommand{\GetOralChiDay}{\OralChiDay}
+\newcommand{\GetOralEngYear}{\OralEngYear}
+\newcommand{\GetOralEngMonth}{\OralEngMonth}
+\newcommand{\GetOralEngDay}{\OralEngDay}
+\newcommand{\GetOralEngDayNumInChi}{\zhnumber{\OralEngDay}}
+
+\newcommand{\SetOralChiDate}[3]
+{
+  \SetOralTaiwanYear{#1}
+  \renewcommand{\OralChiYear}{\OralTaiwanYearResult}
+  \renewcommand{\OralChiMonth}{#2}
+  \renewcommand{\OralChiDay}{#3}
+} % End of \newcommand{}
+
+\newcommand{\SetOralEngDate}[3]
+{
+  \renewcommand{\OralEngYear}{#1}
+  \renewcommand{\OralEngMonth}{\GetMonthInEng{#2}}
+  \renewcommand{\OralEngDay}{#3}
+} % End of \newcommand{}
+
+\newcommand{\SetOralDate}[3]
+{
+  \SetOralChiDate{#1}{#2}{#3}
+  \SetOralEngDate{#1}{#2}{#3}
+} % End of \newcommand{}
+
+% ----------------------------------------------------------------------------
+
+% --- 學院 College, 系所 Department and Institute ---
+
+% --------------------------- College ---------------------------
+\newcommand{\VarCollegeChiName}{學院 C}
+\newcommand{\VarCollegeEngName}{College of C}
+\newcommand{\SetCollChiName}[1]{\renewcommand{\VarCollegeChiName}{#1}}
+\newcommand{\SetCollEngName}[1]{\renewcommand{\VarCollegeEngName}{#1}}
+\newcommand{\SetCollName}[2]
+{
+  \SetCollChiName{#1}
+  \SetCollEngName{#2}
+} % End of \newcommand{}
+
+\newcommand{\GetCollChiName}{\VarCollegeChiName}
+\newcommand{\GetCollEngName}{\VarCollegeEngName}
+
+% --------------------------- Department ---------------------------
+\newcommand{\VarDepartmentChiName}{A 系 / 所}
+%\newcommand{\VarDepartmentEngName}{DeptA} % Short form of department
+\newcommand{\VarDepartmentEngFullName}{Department / Insitute A} % Full name of department
+\newcommand{\SetDeptChiName}[1]{\renewcommand{\VarDepartmentChiName}{#1}}
+%\newcommand{\SetDeptEngShortName}[1]{\renewcommand{\VarDepartmentEngName}{#1}}
+\newcommand{\SetDeptEngFullName}[1]{\renewcommand{\VarDepartmentEngFullName}{#1}}
+\newcommand{\SetDeptName}[3]
+{
+  \SetDeptChiName{#1}
+%  \SetDeptEngShortName{#2}
+  \SetDeptEngFullName{#3}
+} % End of \newcommand{}
+
+\newcommand{\GetDeptChiName}{\VarDepartmentChiName}
+\newcommand{\GetDeptEngName}{\VarDepartmentEngFullName}
+
+% ----------------------------------------------------------------------------
+
+% --- 指導老師 Advisor(s) ---
+% 在封面上預算了最多3位的空間
+% 中文名字固定以 博士 結尾
+% 英文名字固定以 Dr. 開頭
+
+\newcommand{\VarAdvisorChiNameA}{X}
+\newcommand{\VarAdvisorEngNameA}{X}
+\newcommand{\VarAdvisorChiNameB}{}
+\newcommand{\VarAdvisorEngNameB}{}
+\newcommand{\VarAdvisorChiNameC}{}
+\newcommand{\VarAdvisorEngNameC}{}
+
+\newcommand{\GetAdvisorChiNameA}{\VarAdvisorChiNameA}
+\newcommand{\GetAdvisorEngNameA}{\VarAdvisorEngNameA}
+\newcommand{\GetAdvisorChiNameB}{\VarAdvisorChiNameB}
+\newcommand{\GetAdvisorEngNameB}{\VarAdvisorEngNameB}
+\newcommand{\GetAdvisorChiNameC}{\VarAdvisorChiNameC}
+\newcommand{\GetAdvisorEngNameC}{\VarAdvisorEngNameC}
+
+\newcommand{\SetAdvisorChiNameA}[1]{\renewcommand{\VarAdvisorChiNameA}{#1}}
+\newcommand{\SetAdvisorEngNameA}[1]{\renewcommand{\VarAdvisorEngNameA}{#1}}
+\newcommand{\SetAdvisorChiNameB}[1]{\renewcommand{\VarAdvisorChiNameB}{#1}}
+\newcommand{\SetAdvisorEngNameB}[1]{\renewcommand{\VarAdvisorEngNameB}{#1}}
+\newcommand{\SetAdvisorChiNameC}[1]{\renewcommand{\VarAdvisorChiNameC}{#1}}
+\newcommand{\SetAdvisorEngNameC}[1]{\renewcommand{\VarAdvisorEngNameC}{#1}}
+
+\newcommand{\SetAdvisorNameA}[2]
+{
+  \SetAdvisorChiNameA{#1}
+  \SetAdvisorEngNameA{#2}
+} % End of \newcommand{}
+
+\newcommand{\SetAdvisorNameB}[2]
+{
+  \SetAdvisorChiNameB{#1}
+  \SetAdvisorEngNameB{#2}
+} % End of \newcommand{}
+
+\newcommand{\SetAdvisorNameC}[2]
+{
+  \SetAdvisorChiNameC{#1}
+  \SetAdvisorEngNameC{#2}
+} % End of \newcommand{}
+
+% ----------------------------------------------------------------------------
+
+% Use to create cover
+\newcommand{\CreateCover}%
+{
+  \begin{document}
+  \input{./template/cover/cover}
+  \end{document}
+} % End of \newcommand{}
+
+% Use to include and display inner cover
+\newcommand{\DisplayInnerCover}{\input{./template/cover/inner.tex}}
+
+% ----------------------------------------------------------------------------
+
+\newcommand{\ValueDisplayCoverLangEng}{0}
+\newcommand{\ValueDisplayCoverLangChi}{1}
+\newcommand{\VarDisplayCoverLang}{\ValueDisplayCoverLangEng}
+\newcommand{\GetDisplayCoverLang}{\VarDisplayCoverLang}
+\newcommand{\DisplayCoverInChi}{\renewcommand{\VarDisplayCoverLang}{\ValueDisplayCoverLangChi}}
+\newcommand{\DisplayCoverInEng}{\renewcommand{\VarDisplayCoverLang}{\ValueDisplayCoverLangEng}}
+
+% 日期顯示中文數字
+\newcommand{\ValueDisplayCoverDateNumInNum}{0}
+\newcommand{\ValueDisplayCoverDateNumInChi}{1}
+\newcommand{\VarDisplayCoverDateNum}{\ValueDisplayCoverDateNumInNum}
+\newcommand{\GetDisplayCoverDateNum}{\VarDisplayCoverDateNum}
+\newcommand{\CoverDateNumInChi}{\renewcommand{\VarDisplayCoverDateNum}{\ValueDisplayCoverDateNumInChi}}
+
+% ----------------------------------------------------------------------------
+
+% Display Chinese and English name in english cover
+\newcommand{\CoverDisplayNameChiEng}{0} % Default not display both
+\newcommand{\SetCDBothName}{\renewcommand{\CoverDisplayNameChiEng}{1}}
+\newcommand{\GetCDBothName}{\CoverDisplayNameChiEng}
+\newcommand{\DisplayCoverPeoplesBothNames}{\SetCDBothName}
+
+% A wrapper to handle \CDBothName{}
+\newcommand{\CDBothName}{\DisplayCoverPeoplesBothNames}
+
+% ----------------------------------------------------------------------------
+
+% 顯示 '(初稿)' (中文版) 和 '(Draft)' (英文版) 在封面
+\newcommand{\GetTextDraftChi}{(初稿)}
+\newcommand{\GetTextDraftEng}{(Draft)}
+\newcommand{\VarCoverDisplayDraft}{0} % Don't display in default
+\newcommand{\EnableFlagDisplayDraft}{\renewcommand{\VarCoverDisplayDraft}{1}}
+\newcommand{\DisplayDraft}{\EnableFlagDisplayDraft}
+\newcommand{\GetFlagDisplayDraft}{\VarCoverDisplayDraft}
+
+% ----------------------------------------------------------------------------

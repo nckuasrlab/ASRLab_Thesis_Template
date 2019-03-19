@@ -1,0 +1,175 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% ------------------------------------------------
+
+\documentclass[12pt, a4paper, onecolumn, english]{report}
+
+% ------------------------------------------------
+
+% XeLaTex檢查點, 以要求必須使用XeLaTex來處理模版
+\usepackage{ifxetex}
+\ifxetex\else\errmessage{模版: 請使用XeLaTex來產生論文.}\stop\fi
+
+% ------------------------------------------------
+
+% 引用字體的基本設定
+%
+% No longer need \usepackage[T1]{fontenc} and
+% \usepackage[utf8]{inputenc} when using XeLaTeX and LuaLaTeX as the engine.
+%
+
+% 引用fontspec以提供控制英文字型
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX} % To support LaTeX quoting style
+
+% 引用xeCJK以提供控制中文字型
+\usepackage{xeCJK}
+
+% ------------------------------------------------
+
+% 引用需要的LaTex packages
+
+% Some base packages
+\usepackage{geometry}
+\usepackage{fp}
+\usepackage{ifthen}
+\usepackage{pgfkeys}
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{url}
+\usepackage{color}
+\usepackage{etoolbox}
+
+% For floats
+% flafter package will make sure that the floats are
+% not placed before their definition
+\usepackage{flafter}
+
+% For list
+% Ref: <http://ftp.yzu.edu.tw/CTAN/macros/latex/contrib/enumitem/enumitem.pdf>
+%\usepackage{enumitem}
+%\setlist{noitemsep, nosep}
+
+% For paragraphs
+\usepackage{parskip}
+
+% For line spacing
+% Ref: <https://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting>
+\usepackage{setspace}
+
+% For PDF
+\usepackage{hyperref}
+\usepackage{pdfpages}
+
+% For figure
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% For table
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{diagbox}
+
+% For comment
+\usepackage{comment}
+
+% For 目錄
+\usepackage[tocgraduated]{tocstyle}
+\usetocstyle{standard}
+\setcounter{tocdepth}{4} % 目錄會顯示subsubsection
+
+% For appendix
+\usepackage[titletoc]{appendix}
+
+% For chinese number in title
+% http://ftp.yzu.edu.tw/CTAN/macros/latex/contrib/zhnumber/zhnumber.pdf
+\usepackage{zhnumber}
+
+% For pseudocode
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\algnewcommand\algorithmicswitch{\textbf{switch}}
+\algnewcommand\algorithmiccase{\textbf{case}}
+\algnewcommand\algorithmicdefault{\textbf{default}}
+\algnewcommand\algorithmicbreak{\textbf{break}}
+\algdef{SE}[SWITCH]{Switch}{EndSwitch}[1]{\algorithmicswitch\ #1\ }{\algorithmicend\ \algorithmicswitch}%
+\algdef{SE}[CASE]{Case}{EndCase}[1]{\algorithmiccase\ #1:}{\algorithmicend\ \algorithmiccase}%
+\algdef{SE}[CASE]{Default}{EndDefault}[0]{\algorithmicdefault:}{\algorithmicend\ \algorithmiccase}%
+\algtext*{EndSwitch}%
+\algtext*{EndCase}%
+\algtext*{EndDefault}%
+\def\Break{\algorithmicbreak}
+
+% For theorem
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage{chngcntr}
+%\usepackage{./template/libs/apptools}
+
+% ------------------------------------------------
+
+% 有關學校對論文要求的設定
+
+% --------------------------
+
+% 一些用來設定function和variable的command
+\input{./template/command/command}
+
+% --------------------------
+
+% 學校排版 Arrangement style
+\input{./template/style/style}
+
+% --------------------------
+
+% 論文有關資料
+\input{./conf/conf}
+
+% --------------------------
+
+% 在 pdf 簡介欄裡填入相關資料
+\FillInPDFData
+
+% ------------------------------------------------
+
+% 一些會受到conf.tex中設定而影響的package或排版的設定
+
+% Makes all pages the height of the text on that page.
+% No extra vertical space is added.
+%\raggedbottom
+
+% Setup all custom numbering format
+\SetupNumberingFormat
+
+% 當所有的package都include完後, 才真正設定我們要的字型,
+% 以清掉所有由package影響到的設定.
+\InitDefaultFontType
+
+%\setlength{\parindent}{4em}
+%\usepackage{indentfirst}
+
+% Initinal all theorem formats
+\InitTheoremFormats
+
+% ------------------------------------------------

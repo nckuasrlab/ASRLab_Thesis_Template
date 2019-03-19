@@ -1,0 +1,174 @@
+%
+% This file is part of the project of
+% National Cheng Kung University (NCKU) Thesis/Dissertation Template in LaTex.
+% This project is hold at
+%     <https://github.com/wengan-li/ncku-thesis-template-latex>
+% by Wen-Gan Li.
+%
+% This project is distributed in the hope of usefuling to someone,
+% you can redistribute it and/or modify it under the terms of the
+% Attribution-NonCommercial-ShareAlike 4.0 International.
+%
+% You should have received a copy of the
+% Attribution-NonCommercial-ShareAlike 4.0 International
+% along with this project.
+% If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt>.
+%
+% Please feel free to fork it, modify it, and try it.
+% Have fun !!!
+%
+
+% ----------------------------------------------------------------------------
+%
+% http://tex.stackexchange.com/questions/34312/how-to-create-a-command-with-key-values
+%
+% 用\begin{figure} .. \end{figure}
+% 可能會出現問題
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ouparmd
+%
+% ----------------------------------------------------------------------------
+
+\DeclareDocumentCommand{\SetFigureCaptionAndLabel}{+m +m}
+{
+  \ifthenelse{\equal{#1}{\empty}}{}%
+  {%
+    \ifthenelse{\equal{%
+      \GetStartExtendedAbstractFigureTableControl}{%
+      \ValueDisableExtendedAbstractFigureTableControl}}%
+      {\caption{#1}}{\caption[]{#1}}
+    \ifthenelse{\equal{#2}{\empty}}{}{\label{#2}}%
+  }%
+} % End of \DeclareDocumentCommand{}
+
+\DeclareDocumentCommand{\SetFigureCaption}{+m}
+{
+  \ifthenelse{\equal{#1}{\empty}}{}{\IfNoValueF{#1}{\caption{#1}}}
+} % End of \DeclareDocumentCommand{}
+
+\DeclareDocumentCommand{\SetImageLabel}{+m}
+{
+  \ifthenelse{\equal{#1}{\empty}}{}{\IfNoValueF{#1}{\label{#1}}}
+} % End of \DeclareDocumentCommand{}
+
+% -----------------------------------------------------------------
+
+\pgfkeys
+{
+  /InsertFigure/.is family, /InsertFigure,
+  default/.style =
+  {
+    scale = 1.0,
+    angle = 0,
+    caption = \empty,
+    label = \empty,
+    pos = {H},      % Useless, for backporting
+    align = \empty, % Useless, for backporting
+    opacity = 0.4,
+  },
+  scale/.estore in = \TmpValueScale,
+  angle/.estore in = \TmpValueAngle,
+  caption/.estore in = \TmpValueCaption,
+  label/.estore in = \TmpValueLabel,
+  pos/.estore in = \TmpValuePosition,   % Useless, for backporting
+  align/.estore in = \TmpValueAlign,    % Useless, for backporting
+  opacity/.estore in = \TmpValueOpacity,
+} % End of \pgfkeys{}
+
+% Insert a single column image
+\newcommand{\InsertFigure}[2][\empty]
+{%
+  % Parse the input
+  \pgfkeys{/InsertFigure, default, #1}%
+  %
+  \begin{figure}[H]%
+  \begin{minipage}[c]{\textwidth}%
+  \begin{mdframed}[skipabove=0pt, skipbelow=0pt, leftmargin=0pt, rightmargin=0pt,
+    innerleftmargin=0pt, innerrightmargin=0pt, innertopmargin=0pt,
+    innerbottommargin=0pt, linewidth=0pt, apptotikzsetting={%
+    \tikzset{mdfbackground/.append style={opacity=\TmpValueOpacity}}}]%
+    \makebox[\textwidth]{%
+      \includegraphics[
+        scale=\TmpValueScale,
+        angle=\TmpValueAngle]{#2}%
+    }%
+  \end{mdframed}%
+  \end{minipage}%
+  % Set Caption and Label
+  \SetFigureCaptionAndLabel{\TmpValueCaption}{\TmpValueLabel}
+  \end{figure}%
+} % End of \newcommand{}
+
+% -----------------------------------------------------------------
+
+\def\ValueFigureNameDefault{Figure}
+\def\ValueFigureNameCustom{Figure} % Default
+\def\UseFigureNameDefault{%
+  \renewcommand{\figurename}{\ValueFigureNameDefault}}
+\def\UseFigureNameCustom{%
+  \renewcommand{\figurename}{\ValueFigureNameCustom}}
+\newcommand{\SetCustomFigureName}[1]{%
+  \renewcommand{\ValueFigureNameCustom}{#1}}
+
+\UseFigureNameCustom % Default
+
+% -----------------------------------------------------------------
+
+% 過去的API, 以 Error提醒不能再使用
+\newcommand{\InsertCenterImage}{\errmessage{模版: 由v1.4.1開始, InsertCenterImage已不能再使用, 請改使用InsertFigure.}\stop}
+\newcommand{\InsertImage}{\errmessage{模版: 由v1.4.1開始, InsertCenterImage已不能再使用, 請改使用InsertFigure.}\stop}
+
+% -----------------------------------------------------------------
+\begin{comment}
+\def\ValueFigureNameBoldOn{1}
+\def\ValueFigureNameBoldOff{0}
+\def\VarFigureNameBoldOption{\ValueFigureNameBoldOn} %Default
+\def\GetFigureNameBoldOption{\VarFigureNameBoldOption}
+\newcommand{\EnableFigureNameBold}{%
+  \renewcommand{\VarFigureNameBoldOption}{\ValueFigureNameBoldOn}}
+\newcommand{\DisableFigureNameBold}{%
+  \renewcommand{\VarFigureNameBoldOption}{\ValueFigureNameBoldOff}}
+
+% ------------------------------------------
+
+\def\ValueFigureTextBoldOn{3}
+\def\ValueFigureTextBoldOff{2}
+\def\VarFigureTextBoldOption{\ValueFigureTextBoldOff} %Default
+\def\GetFigureTextBoldOption{\VarFigureTextBoldOption}
+\newcommand{\EnableFigureTextBold}{%
+  \renewcommand{\VarFigureTextBoldOption}{\ValueFigureTextBoldOn}}
+\newcommand{\DisableFigureTextBold}{%
+  \renewcommand{\VarFigureTextBoldOption}{\ValueFigureTextBoldOff}}
+\end{comment}
+% ------------------------------------------
+
+% Default style
+\newcommand{\UseFigureCaptionDefaultStyle}
+{%
+%  \ifthenelse{\equal{\GetFigureNameBoldOption}{\ValueFigureNameBoldOn}}
+%  {%
+%    \captionsetup[figure]{labelfont=bf}
+%  }%
+%  {%
+%    \captionsetup[figure]{labelfont=normalfont}
+%  }%
+  %
+%  \ifthenelse{\equal{\GetFigureTextBoldOption}{\ValueFigureTextBoldOn}}
+%  {%
+%    \captionsetup[figure]{textfont=bf}%
+%  }%
+%  {%
+%    \captionsetup[figure]{textfont=normalfont}%
+%  }%
+  \captionsetup[figure]{labelfont=bf, textfont=normalfont}%
+} % End of \newcommand{}
+
+% Style for Extended Abstract
+\newcommand{\UseFigureCaptionExtendedAbstractStyle}
+{%
+  \captionsetup[figure]{font=bf}%
+  \renewcommand{\thefigure}{\arabic{figure}}%
+} % End of \newcommand{}
+
+\UseFigureCaptionDefaultStyle % Default
+
+% -----------------------------------------------------------------

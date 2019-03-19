@@ -1,5 +1,4 @@
-## ASRLab NCKU Thesis Template in LaTex ##
-### ASRLab 成功大學碩博士用畢業論文 LaTex 模版 ###
+## ASRLab 成功大學碩博士用畢業論文 LaTex 模版 ##
 
 此模板由專案 [ncku-thesis-template-latex](https://github.com/wengan-li/ncku-thesis-template-latex) 修改而來，原專案中有詳細的論文說明。(但可能過時，請以校方最新公告為主)
 

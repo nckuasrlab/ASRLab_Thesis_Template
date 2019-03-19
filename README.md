@@ -9,11 +9,14 @@
 
 此模版是以 [105.12.15 105學年度第2次教務會議修正過](http://cid.acad.ncku.edu.tw/ezfiles/56/1056/img/730/degree4-1.pdf) 的畢業論文要求設計, 請留意學校的最新所訂的要求能否使用這模版.
 
-### Sample 樣板/範例
-[PDF 樣版/範例](https://github.com/wengan-li/ncku-thesis-template-latex-sample)
-[原作者 wengan-li 提供之模板](https://github.com/wengan-li/ncku-thesis-template-latex)
-[lycsjm 提供之模板](https://github.com/lycsjm/nckuthesis)
+---
 
+### 其他 Sample 樣板/範例
+* [PDF 樣版/範例](https://github.com/wengan-li/ncku-thesis-template-latex-sample)
+* [原作者 wengan-li 提供之模板](https://github.com/wengan-li/ncku-thesis-template-latex)
+* [lycsjm 提供之模板](https://github.com/lycsjm/nckuthesis)
+
+---
 
 ### License 授權條款
 本著作採用創用 CC 姓名標示-非商業性-相同方式分享 4.0 授權條款

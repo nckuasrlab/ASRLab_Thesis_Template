@@ -10,6 +10,31 @@
 此模版是以 [105.12.15 105學年度第2次教務會議修正過](http://cid.acad.ncku.edu.tw/ezfiles/56/1056/img/730/degree4-1.pdf) 的畢業論文要求設計, 請留意學校的最新所訂的要求能否使用這模版.
 
 ---
+### 使用方法
+
+#### Linux
+
+```
+$ sudo apt-get install texlive-full texmaker
+$ cd ASRLab_Thesis_Template/thesis
+```
+* Compile and generate PDF
+```
+$ make
+```
+* Edit
+```
+$ make edit
+```
+* Clean
+```
+$ make clean
+```
+
+#### Windows
+
+
+---
 
 ### 其他 Sample 樣板/範例
 * [PDF 樣版/範例](https://github.com/wengan-li/ncku-thesis-template-latex-sample)

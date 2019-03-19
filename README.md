@@ -7,27 +7,29 @@
 * 減少過度包裝的 API 使用，以 Latex 原生 API 為主。
 * 方便好用懶人包。
 
-此模版是以 [105.12.15 105學年度第2次教務會議修正過](http://cid.acad.ncku.edu.tw/ezfiles/56/1056/img/730/degree4-1.pdf) 的畢業論文要求設計, 請留意學校的最新所訂的要求能否使用這模版.
-
 ---
 ### 使用方法
 
 #### Linux
 
 ```
+# prerequisite
 $ sudo apt-get install texlive-full texmaker
 $ cd ASRLab_Thesis_Template/thesis
-```
-* Compile and generate PDF
-```
+
+# compile and generate PDF
 $ make
-```
-* Edit
-```
+
+# make outer cover
+$ make cover
+
+# show example case
+$ make example
+
+# edit
 $ make edit
-```
-* Clean
-```
+
+# clean
 $ make clean
 ```
 

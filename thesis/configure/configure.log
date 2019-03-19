@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.3.16)  19 MAR 2019 10:57
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2019.3.19)  19 MAR 2019 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1638,6 +1638,12 @@ exclude:
 exclude: 
 exclude: 
 exclude: 
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count275
+\c@@ppsavesec=\count276
+\c@@ppsaveapp=\count277
+)
 (/usr/share/texlive/texmf-dist/tex/latex/zhnumber/zhnumber.sty
 Package: zhnumber 2016/02/02 v2.3 Typesetting numbers with Chinese glyphs
 .................................................
@@ -1675,7 +1681,7 @@ Package: zhnumber 2016/02/02 v2.3 Typesetting numbers with Chinese glyphs
 . 
 . Defining command \zhdate with sig. '+s+m' on line 357.
 .................................................
-\l__zhnum_scale_int=\count275
+\l__zhnum_scale_int=\count278
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1698,14 +1704,14 @@ nment
 
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count276
+\c@float@type=\count279
 \float@exts=\toks38
 \float@box=\box68
 \@float@everytoks=\toks39
 \@floatcapt=\box69
 )
 \@float@every@algorithm=\toks40
-\c@algorithm=\count277
+\c@algorithm=\count280
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -1714,15 +1720,15 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count278
-\c@ALG@rem=\count279
-\c@ALG@nested=\count280
+\c@ALG@line=\count281
+\c@ALG@rem=\count282
+\c@ALG@nested=\count283
 \ALG@tlm=\skip130
 \ALG@thistlm=\skip131
-\c@ALG@Lnr=\count281
-\c@ALG@blocknr=\count282
-\c@ALG@storecount=\count283
-\c@ALG@tmpcounter=\count284
+\c@ALG@Lnr=\count284
+\c@ALG@blocknr=\count285
+\c@ALG@storecount=\count286
+\c@ALG@tmpcounter=\count287
 \ALG@tmplength=\skip132
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -1749,7 +1755,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 
-! LaTeX Error: File `./template/command/command.tex' not found.
+! LaTeX Error: File `./configure/command/command.tex' not found.
 
 Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: tex)
@@ -1758,16 +1764,16 @@ Enter file name:
 ! Emergency stop.
 <read *> 
          
-l.138 \input{./template/command/command}
-                                        ^^M
+l.137 \input{./configure/command/command}
+                                         ^^M
 *** (cannot \read from terminal in nonstop modes)
 
  
 Here is how much of TeX's memory you used:
- 39460 strings out of 493638
- 748057 string characters out of 6146796
- 778862 words of memory out of 5000000
- 42382 multiletter control sequences out of 15000+600000
+ 39552 strings out of 493638
+ 749403 string characters out of 6146796
+ 780300 words of memory out of 5000000
+ 42471 multiletter control sequences out of 15000+600000
  4346 words of font info for 22 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  66i,0n,64p,10417b,226s stack positions out of 5000i,500n,10000p,200000b,80000s

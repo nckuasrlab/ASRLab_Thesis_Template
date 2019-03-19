@@ -1,17 +1,31 @@
-FILENAME=thesis
+THESIS_FILE=thesis
+THESIS_COVER=outer_cover
+EXAMPLE=example
 
-all: clean thesis.pdf
+all: thesis.pdf
 
-thesis.pdf: $(FILENAME).tex
+$(THESIS_FILE).pdf: $(THESIS_FILE).tex
 	xelatex $^
-	bibtex $(FILENAME)
+	bibtex $(THESIS_FILE)
+	xelatex $^
+	xelatex $^
+
+cover: $(THESIS_COVER).pdf
+
+$(THESIS_COVER).pdf: $(THESIS_COVER).tex
+	xelatex $^
+
+example: $(EXAMPLE).pdf
+
+$(EXAMPLE).pdf: $(EXAMPLE).tex
+	xelatex $^
+	bibtex $(EXAMPLE)
 	xelatex $^
 	xelatex $^
 
 edit:
-	texmaker $(FILENAME).tex &
+	texmaker $(THESIS_FILE).tex &
 
 clean:
 	@rm -f *.bcf *.lot *.fls *.toc *.lof *.fdb_latexmk \
-	*.dvi *.aux *.log *.ps *.pdf *.out $(FILENAME).bbl \
-	$(FILENAME).blg *.gz
+	*.dvi *.aux *.log *.ps *.pdf *.out *.bbl *.blg *.gz

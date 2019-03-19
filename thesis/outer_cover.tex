@@ -1,0 +1,110 @@
+% 產生封面
+%
+% 封面: 顯示所有封面內容, 但沒有學校Logo)
+%     主要用在印刷版, 如精裝版 或 平裝版
+%
+% 內頁: 顯示所有封面內容, 但有學校Logo
+%     主要用在電子版 + 印刷版
+%     (在context.tex設定)
+%
+% 只要是印刷版, 不論是精裝版或平裝版, 都是 封面 (殼/皮) + 內頁.
+% 只有在電子版時, 第一頁就是封面內頁.
+%
+% 提供封面的PDF給影印店時,
+% 記得不要把檔案上鎖,
+% 免得增加影印店去做外皮時的不便.
+
+% ------------------------------------------------
+%          載入基本設定 Basic configuration
+% ------------------------------------------------
+\input{./configure/configure}
+\begin{document}
+
+% ------------------------------------------------
+%                       封面
+% ------------------------------------------------
+\ClearWatermarkStyle
+
+\singlespacing 
+\newpage
+\phantomsection
+\thispagestyle{empty}
+\newgeometry{top=2.3cm,bottom=3cm,left=2cm,right=2cm,nohead,nofoot}
+  
+\begin{center}
+
+\begin{minipage}[c][5cm][t]{\textwidth}
+  \begin{center}
+    \makebox[10cm][s]{\Huge 國立成功大學}\vspace{1cm}		\\
+    \makebox[8cm][s]{\Huge 資訊工程研究所}\vspace{1cm}		\\
+    \makebox[5cm][s]{\Huge 碩士論文}\vspace{1cm}			\\
+    \makebox[5cm][c]{\Huge (初稿)}
+  \end{center}
+\end{minipage}
+
+\vspace{5.5cm}
+
+\begin{minipage}[c][5cm][t]{\textwidth}
+  \begin{center}
+    \makebox[\textwidth][c]{\parbox{\paperwidth}
+    {\center \Large 國立成功大學碩博士畢業論文\\LaTex模板}}
+    \vspace{0.5cm}\\
+    \makebox[\textwidth][c]{\parbox{\paperwidth}
+    {\center \Large National Cheng Kung University (NCKU)\\Thesis/Dissertation Template in LaTex}}
+  \end{center}
+\end{minipage}
+
+\vspace{1.0cm}
+
+\begin{minipage}[c][4.5cm][t]{\textwidth}
+  \begin{center}
+    {
+      % -------------Student-------------
+      \hspace{2.0em}
+      \makebox[4.0em][r]{\Large 學生：}
+      \makebox[6.0em][l]{\Large 你的名字}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{\Large Student：}
+      \makebox[8.0em][l]{\Large Your Name}
+      \vspace{0.5cm}\\
+      % -------------Advisor-------------
+      \hspace{2.0em}
+      \makebox[4.0em][r]{\Large 指導老師：}
+      \makebox[6.0em][l]{\Large A博士}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{\Large Advisor：}
+      \makebox[8.0em][l]{\Large Dr. A}
+      \vspace{0.1cm}\\
+      % -------------Co-Advisor-1-------------
+      \hspace{2.0em}
+      \makebox[4.0em][r]{\Large 共同指導：}
+      \makebox[6.0em][l]{\Large B博士}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{\Large Co-Advisor：}
+      \makebox[8.0em][l]{\Large Dr. B}
+      \vspace{0.1cm}\\
+      % -------------Co-Advisor-2-------------
+      \hspace{1.7em}
+      \makebox[4.0em][r]{}
+      \makebox[6.0em][l]{\Large C博士}
+      \makebox[8.0em][c]{}
+      \makebox[4.0em][r]{}
+      \makebox[8.0em][l]{\Large Dr. C}
+      \\
+    }
+  \end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\makebox[8cm][s]{\Large 中華民國105年12月}
+
+\end{center}
+\restoregeometry
+\clearpage
+\setstretch{1.2}
+
+
+\UseWatermarkFigureStyle
+
+\end{document}

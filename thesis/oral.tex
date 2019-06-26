@@ -1,0 +1,218 @@
+% ------------------------------------------------
+%                  產生口試同意書
+% ------------------------------------------------
+% 給學校的文件需要同時有中英兩版
+%
+% ------------------------------------------------
+%          載入基本設定 Basic configuration
+% ------------------------------------------------
+\input{./configure/configure}
+\begin{document}
+
+% ------------------------------------------------
+%                  中文口試同意書
+% ------------------------------------------------
+\ClearWatermarkStyle
+\UseWatermarkTextStyle
+\singlespacing
+\newpage
+\phantomsection
+\thispagestyle{empty}
+\begin{center}
+
+% 顯示 校名, 論文種類
+\begin{minipage}[c][1.5cm][t]{\textwidth}
+  \begin{center}
+    \makebox[\textwidth][c]{\Huge 國立成功大學}
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\Huge 碩士論文}
+    
+  \end{center}
+\end{minipage}
+
+\vspace{1.6cm}
+
+% Chinese and English title 中英文題目
+\begin{minipage}[c][2.5cm][t]{\textwidth}
+  \begin{center}
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large 論文中文名稱}}
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large Thesis English Name}}\\
+  \end{center}
+\end{minipage}
+
+
+\vspace{0.3cm}
+
+% 顯示學生的名字
+\begin{minipage}[c][1.5cm][t]{\textwidth}
+  \begin{center}
+    \hspace{2.4em}
+    \makebox[4.8em][r]{\Large 研究生：}
+    \makebox[7.2em][l]{\Large 作者名稱} \\
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\Large 本論文業經審查及口試合格特此證明}\\
+  \end{center}
+\end{minipage}
+
+% --------------------------
+
+\vspace{0.7cm}
+
+% --------------------------
+
+% 博士學位考試委員會置委員五人至九人
+% 碩士學位考試委員會置委員三人至五人
+% 口試委員人數含指導教授
+\begin{minipage}[c][9.0cm][t]{\textwidth}
+  \begin{center}
+    \makebox[\textwidth][l]{\Large 論文考試委員：}
+
+    \vspace{1.07cm}
+
+% 生成簽名欄位
+
+    \begin{minipage}[c][4.0cm][c]{\textwidth}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+    \end{minipage}
+    
+    \begin{minipage}[c][4.0cm][c]{\textwidth}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+    \end{minipage}
+    
+  \end{center}
+\end{minipage}
+
+\vspace{1.5cm}
+
+\begin{minipage}[c][3.0cm][t]{\textwidth}
+  \begin{center}
+    \makebox[4.8em][r]{\Large 指導教授}
+    \makebox[1em][c]{\Large：}
+    \makebox[7.2em][l]{\namesigdate}
+
+    \vspace{1.0cm}
+
+    \makebox[4.8em][r]{\Large 系(所)主管}
+    \makebox[1em][c]{\Large：}
+    \makebox[7.2em][l]{\namesigdate}
+
+    \vspace{1.5cm}
+
+    % Date 日期
+    \makebox[\textwidth][s]{\Large 中華民國 108 年 6 月 26 日}
+  \end{center}
+\end{minipage}
+
+\end{center}
+\clearpage
+\UseDefaultLineStretch
+\ClearWatermarkStyle
+\UseWatermarkFigureStyle
+
+% ------------------------------------------------
+%                  英文口試同意書
+% ------------------------------------------------
+
+\singlespacing
+\newpage
+\phantomsection
+\thispagestyle{empty}
+\begin{center}
+
+\begin{minipage}[c][3.5cm][t]{\textwidth}
+  \begin{center}
+    \vspace{0.4cm}
+
+    \makebox[\textwidth][c]{\parbox{\paperwidth}{\center \Large Thesis English Name}}
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\Large by}
+
+    \vspace{0.5cm}
+
+    \makebox[\textwidth][c]{\Large Your Name}
+  \end{center}
+\end{minipage}
+
+\vspace{1.2cm}
+
+%---------------------------------------------
+% 博士與碩士的口試同意書內容不同
+%---------------------------------------------
+% 博士 -
+% Submitted in partial fulfillment of the requirements
+% for the degree of Doctor of Philosophy in
+% 碩士 -
+% A thesis submitted to the graduate division in partial fulfillment
+% of the requirements for the degree of Master of Science in
+
+% 顯示 校名, 系所名, 論文種類
+\begin{minipage}[c][5cm][t]{\textwidth}
+  \begin{center}\Large A thesis submitted to the graduate division in partial fulfillment
+  of the requirements for the degree of Master of Science in\\
+  Institute of Computer Science and Information Engineering\\ %系所
+  College of Electrical Engineering and Computer Science\\ %學院
+  National Cheng Kung University\\ %學校
+  Tainan, Taiwan, R.O.C.\\
+  \vspace{0.1cm}
+  26 \thinspace \thinspace Jun \thinspace \thinspace 2019
+  \end{center}
+\end{minipage}
+
+% ------------------------------------------------
+
+\vspace{0.8cm}
+
+% ------------------------------------------------
+\begin{minipage}[c][9.0cm][t]{\textwidth}
+  \makebox[\textwidth][l]{\Large Approved by:} \\
+
+  \vspace{0.48cm}
+
+  % 生成簽名欄位
+
+    \begin{minipage}[c][4.0cm][c]{\textwidth}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+    \end{minipage}
+    
+    \begin{minipage}[c][4.0cm][c]{\textwidth}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+      \makebox[0.5\textwidth][c]{\namesigdate}
+    \end{minipage}
+    
+\end{minipage}
+
+\vspace{1.5cm}
+
+\begin{minipage}[c][2.0cm][t]{\textwidth}
+  \begin{center}
+    \makebox[4.8em][r]{\Large Advisor}
+    \makebox[1em][c]{\Large:}
+    \makebox[7.2em][l]{\namesigdate}\\
+
+    \vspace{1.0cm}
+
+    \makebox[4.8em][r]{\Large Chairman}
+    \makebox[1em][c]{\Large:}
+    \makebox[7.2em][l]{\namesigdate}\\
+  \end{center}
+\end{minipage}
+
+\end{center}
+\clearpage
+\UseDefaultLineStretch
+\ClearWatermarkStyle
+\UseWatermarkFigureStyle
+
+\end{document}

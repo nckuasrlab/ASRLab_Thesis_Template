@@ -26,6 +26,9 @@ $(EXAMPLE).pdf: $(EXAMPLE).tex
 edit:
 	texmaker $(THESIS_FILE).tex &
 
+oral:
+	xelatex oral.tex	
+
 clean:
 	@rm -f *.bcf *.lot *.fls *.toc *.lof *.fdb_latexmk \
 	*.dvi *.aux *.log *.ps *.pdf *.out *.bbl *.blg *.gz

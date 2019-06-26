@@ -17,14 +17,17 @@
 $ sudo apt-get install texlive-full texmaker
 $ cd ASRLab_Thesis_Template/thesis
 
-# compile and generate PDF
+# compile and generate thesis PDF
 $ make
 
 # make outer cover
 $ make cover
 
-# show example case
+# generate example case
 $ make example
+
+# generate oral consent
+$ make oral
 
 # edit
 $ make edit

@@ -353,7 +353,8 @@ This chapter shows how to use $\backslash$cite command. The $\backslash$cite com
 \phantomsection
 \renewcommand\bibname{References}	% references title
 
-\bibliographystyle{ieeetr}			% reference style
+% 學校規定以作者英文姓氏第一字排列順序，故使用 plain ，如果要按照引用順序，可改用 ieeetr
+\bibliographystyle{plain}			% reference style
 \bibliography{thesis}				% target .bib file
 
 \clearpage

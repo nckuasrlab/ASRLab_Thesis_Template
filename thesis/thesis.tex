@@ -29,7 +29,25 @@
 % ------------------------------------------------
 % Don't need to modify this section.
 \input{configure/configure}
+
+% ------------------------------------------------
+%                   DOI Watermark
+% ------------------------------------------------
+\usepackage{draftwatermark}  % For DOI watermark
+
+\newcommand{\ShowDOI}[1]{
+	\SetWatermarkText{\textbf{#1}}
+	\SetWatermarkColor{black}
+	\SetWatermarkFontSize{0.5 cm}
+	\SetWatermarkScale{0.58}
+	\SetWatermarkAngle{0}
+	\SetWatermarkLightness{0}
+	\SetWatermarkHorCenter{18 cm}
+	\SetWatermarkVerCenter{28.4 cm}
+}
+
 \begin{document}
+\ShowDOI{doi:XXXX/NCKU2019XXXXX}
 
 % ------------------------------------------------
 %                封面內頁 Inner Cover

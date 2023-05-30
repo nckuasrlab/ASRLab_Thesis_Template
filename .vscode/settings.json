@@ -1,0 +1,49 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "latex",
+            "scheme": "file",
+            "pattern": "*.tex"
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Single",
+            "tools": [
+                "xelatexmk"
+            ]
+        },
+        {
+            "name": "Compile",
+            "tools": [
+                "xelatexmk",
+                "bibtex",
+                "xelatexmk",
+                "xelatexmk"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+}

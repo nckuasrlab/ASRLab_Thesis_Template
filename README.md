@@ -40,11 +40,14 @@ $ make clean
 
 ### Windows
 
-* 使用 VSCode 請參考 [Use VSCode to Write LaTeX Paper](https://aben20807.github.io/posts/20210811-use-vscode-to-write-latex-paper/) 設定環境
+* 環境設定及安裝相依性套件
+  * [Strawberry Perl](https://strawberryperl.com/)，選 64-bit 版本
+  * [MikTeX](https://miktex.org/download)
+  * VSCode (james-yu.latex-workshop, analytic-signal.preview-pdf)
+  * 詳細請參考 [Use VSCode to Write LaTeX Paper](https://aben20807.github.io/posts/20210811-use-vscode-to-write-latex-paper/)
 * 產生 PDF 檔案
   * thesis.tex 使用 Recipe: Compile
   * 封面 (oral.tex, outer_cover.tex) 使用 Recipe: Single
-
 
 ---
 
@@ -53,7 +56,8 @@ $ make clean
 * [PDF 樣版/範例](https://github.com/wengan-li/ncku-thesis-template-latex-sample)
 * [原作者 wengan-li 提供之模板](https://github.com/wengan-li/ncku-thesis-template-latex)
 * [lycsjm 提供之模板](https://github.com/lycsjm/nckuthesis)
-* [Latex Examples](https://aben20807.github.io/posts/20221227-latex-examples/)
+* 基本語法: [Latex Examples](https://aben20807.github.io/posts/20221227-latex-examples/)
+* [Latex 符號手寫辨識](http://detexify.kirelabs.org/classify.html)
 
 ---
 

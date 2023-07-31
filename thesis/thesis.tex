@@ -48,7 +48,9 @@
 }
 
 \begin{document}
-\ShowDOI{doi:XXXX/NCKU2019XXXXX}
+% 學校似乎不發 DOI 了
+% \ShowDOI{doi:XXXX/NCKU2019XXXXX}
+\ShowDOI{}
 
 % ------------------------------------------------
 %                封面內頁 Inner Cover
@@ -64,9 +66,9 @@
 \begin{minipage}[c][5cm][t]{\textwidth}
   \begin{center}
     \makebox[10cm][s]{\Huge 國立成功大學}\vspace{1cm}		\\
-    \makebox[8cm][s]{\Huge 資訊工程研究所}\vspace{1cm}		\\
+    \makebox[8cm][s]{\Huge 資訊工程學系}\vspace{1cm}		\\
     \makebox[5cm][s]{\Huge 碩士論文}\vspace{1cm}			\\
-    \makebox[5cm][c]{\Huge (初稿)}
+    \makebox[5cm][c]{\Huge (初稿)} % 送圖書館前加上註解
   \end{center}
 \end{minipage}
 
@@ -138,6 +140,7 @@
 \newpage
 \phantomsection
 \thispagestyle{empty}
+% 此文件會由學校系統產生，口試完請口委簽名後掃描並取代下方路徑。
 \includepdf[pages=-]{context/oral/oral_example.pdf}
 \clearpage
 
@@ -292,6 +295,10 @@ Write your introduction here.
 \begin{spacing}{2.0}
 
 Write your objective here.
+
+\section{Example Section}
+
+\subsection{Example Subsection}
 
 \end{spacing}
 

@@ -8,9 +8,25 @@
 * 減少過度包裝的 API 使用，以 Latex 原生 API 為主。
 * 方便好用懶人包。
 
+注意事項：
+
+* `oral.tex` 原先用來產生學位考試論文證明，但已改成學校系統產生
+* 浮水印部分會由圖書館統一生成，繳交檔案不得有浮水印
+* 使用 "資訊工程學系" 而不是 "資訊工程研究所" 或其他
+
 ---
 
 ## 使用方法
+
+```bash
+git clone https://github.com/nckuasrlab/ASRLab_Thesis_Template.git --depth 1
+```
+
+產生 thesis.pdf 後建議把它加進 git 中，以便管理論文版本。
+
+```bash
+git add thesis/thesis.pdf -f
+```
 
 ### Linux
 
@@ -43,11 +59,11 @@ $ make clean
 * 環境設定及安裝相依性套件
   * [Strawberry Perl](https://strawberryperl.com/)，選 64-bit 版本
   * [MikTeX](https://miktex.org/download)
-  * VSCode (james-yu.latex-workshop, analytic-signal.preview-pdf)
+  * VSCode (`james-yu.latex-workshop`, `analytic-signal.preview-pdf`)
   * 詳細請參考 [Use VSCode to Write LaTeX Paper](https://aben20807.github.io/posts/20210811-use-vscode-to-write-latex-paper/)
 * 產生 PDF 檔案
   * thesis.tex 使用 Recipe: Compile
-  * 封面 (oral.tex, outer_cover.tex) 使用 Recipe: Single
+  * 封面 (`outer_cover.tex`) 使用 Recipe: Single
 
 ---
 
